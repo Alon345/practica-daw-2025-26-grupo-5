@@ -1,0 +1,26 @@
+{
+  "name": "practica-daw-2025-26-grupo-5",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 👥 Miembros del Equipo | Nombre y Apellidos | Correo URJC | Usuario GitHub | |:--- |:--- |:--- | | Raúl Tejada Merinero | r.tejada.2023@alumnos.urjc.es | @raultejada24 | | [Nombre 2] | [email2]@alumnos.urjc.es | [@User2] | | [Nombre 3] | [email3]@alumnos.urjc.es | [@User3] | | [Nombre 4] | [email4]@alumnos.urjc.es | [@User4] |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeURJC-DAW-2025-26/practica-daw-2025-26-grupo-5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeURJC-DAW-2025-26/practica-daw-2025-26-grupo-5/issues"
+  },
+  "homepage": "https://github.com/CodeURJC-DAW-2025-26/practica-daw-2025-26-grupo-5#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "mustache-express": "^1.3.2"
+  }
+}
