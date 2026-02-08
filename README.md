@@ -19,7 +19,7 @@ Stilnovo es una plataforma de compra/venta de objetos usados enfocada en dar un 
 ### **Entidades**
 Indicar las entidades principales que gestionará la aplicación y las relaciones entre ellas:
 
-1. **Usuario**: Almacena información personal, roles y avatar.
+1. **Usuario**: Almacena información personal, roles, avatar y Balance Económico actual.
 2. **Producto**: Artículos para la venta con descripción, precio, categoría y fotos.
 3. **Transacción**: Registra el proceso de compra vinculando a un comprador, un vendedor y un producto.
 4. **Valoración**: Sistema de feedback con comentario y puntuación tras una transacción.
@@ -38,7 +38,7 @@ Describir los permisos de cada tipo de usuario e indicar de qué entidades es du
   - No es dueño de ninguna entidad
 
 * **Usuario Registrado**: 
-  - Permisos: Publicar artículos con fotos, realizar compras, acceder a su historial y gestionar su perfil con avatar.
+  - Permisos: Publicar artículos con fotos, realizar compras, acceder a su historial detallado de sus compras y ventas, gestionar su perfil con avatar, gestionar su inventario, editar/borrar artículos subidos, visualización de analíticas (puntuación del vendedor, ingresos, distribución por categorias, etc) y generación de PDFs (facturas y datos analíticos), Digital Seller Card con código QR (para la verificación de identidad en encuentros físicos) entre otros.
   - Es dueño de: Sus propios productos publicados, su perfil de usuario y las valoraciones que emita.
 
 * **Administrador**: 
@@ -52,20 +52,20 @@ Indicar qué entidades tendrán asociadas una o varias imágenes:
 - **Producto**: Múltiples fotos descriptivas por cada artículo anunciado.
 
 ### **Gráficos**
-Indicar qué información se mostrará usando gráficos y de qué tipo serán:
+Para ofrecer una experiencia de gestión basada en datos, la aplicación integra visualizaciones dinámicas que permiten al usuario y al administrador monitorizar el rendimiento comercial en tiempo real.
 
-- **Gráfico 1**: Cantidad de productos vendidos por categoría - Gráfico de barras.
-- **Gráfico 2**: Evolución de ingresos por ventas del usuario en los últimos meses - Gráfico de líneas.
+- **Gráfico 1**: Distribución de Ventas por Categoría (Donut Chart): Ubicado en el Dashboard de usuario, este gráfico representa proporcionalmente el éxito de ventas en las categorías de Home, Tech, Art y Cars.
+- **Gráfico 2**: Evolución de Ingresos Mensuales (Line Chart): Visualización temporal que muestra la tendencia de ingresos del usuario a lo largo del año (user-statistics.jpg), facilitando la identificación de picos de demanda.
+- **Gráfico 3**: Análisis de Visitas vs. Interés (Bar Chart): Gráfico de barras comparativo que mide el tráfico recibido frente a las interacciones reales (favoritos/compra) por cada tipo de producto.
   
 ### **Tecnología Complementaria**
-Indicar qué tecnología complementaria se empleará:
+Se han seleccionado tecnologías que extienden las capacidades básicas de la web para simular un entorno de producción real.
 
-- Websockets: Para implementar un chat en tiempo real entre compradores y vendedores.
-- Generación de PDFs: Creación automática de recibos de compra o etiquetas de envío tras una transacción.
-- Envío de correos: Notificaciones automáticas con el resumen de la compra en formato PDF.
+- **Generación de PDFs**: Implementación de una librería para la creación automática de facturas y recibos de compra, descargables directamente desde el panel de órdenes, así como la generación de PDFs con las analíticas del usuario y de etiquetas de envío tras una transacción.
+- **Envío de Correos (Mail Service)**: Integración de un servicio de mensajería para gestionar la comunicación inicial entre interesados. Al pulsar "Send Message", el sistema dispara un correo automático al vendedor con los detalles de la consulta del comprador.
 
 ### **Algoritmo o Consulta Avanzada**
-Indicar cuál será el algoritmo o consulta avanzada que se implementará:
+El sistema no se limita a mostrar datos, sino que procesa la actividad del usuario para personalizar su experiencia de navegación.
 
 - **Algoritmo/Consulta**: Sistema de Recomendaciones personalizado.
 - **Descripción**: Muestra en la página de inicio "Productos que te pueden interesar" basándose en las categorías que el usuario ha comprado o visitado previamente
