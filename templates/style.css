@@ -1083,3 +1083,252 @@ main.overflow-auto {
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 30px;
 }
+
+/*ADMIN CSS*/
+/* ADMIN PANEL */
+.btn-danger-clay {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    border-bottom: 3px solid #fca5a5;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-danger-clay:hover {
+    background-color: #fecaca;
+    transform: translateY(1px);
+    border-bottom-width: 2px;
+}
+
+.btn-danger-clay:active {
+    transform: translateY(3px);
+    border-bottom-width: 0px;
+}
+
+/* Badge de estado específico para admin */
+.badge-admin {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-weight: 700;
+}
+
+/* Ajuste de tabla para alinear avatares */
+.table-admin td {
+    vertical-align: middle;
+    padding: 1rem 0.5rem;
+}
+
+/*ADMIN USER MANAGMENT*/
+
+/* Badges de Estado "Clay" */
+.badge-status {
+        padding: 8px 12px;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+}
+        .status-active { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .status-reported { background-color: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; }
+        .status-banned { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+        /* Botones de Acción Admin */
+        .btn-action-admin {
+            border: none;
+            border-radius: 10px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-edit { background-color: #f1f5f9; color: #475569; }
+        .btn-edit:hover { background-color: #e2e8f0; color: #1e293b; }
+
+        .btn-ban { background-color: #fff7ed; color: #c2410c; }
+        .btn-ban:hover { background-color: #ffedd5; color: #9a3412; }
+
+        .btn-delete { background-color: #fef2f2; color: #ef4444; }
+        .btn-delete:hover { background-color: #fee2e2; color: #dc2626; }
+
+        /* Ajustes de Tabla Admin */
+        .table-admin th {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 800;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+        }
+.table-admin td {
+    vertical-align: middle;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy-dark);
+}
+.user-id-mono {
+    font-family: 'Courier New', monospace;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.pagination .page-link {
+    border: none;
+    color: var(--navy-dark);
+    font-weight: 700;
+    border-radius: 10px;
+    margin: 0 5px;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--brand-blue);
+    color: white;
+    box-shadow: 0 4px 10px rgba(47, 108, 237, 0.3);
+}
+
+
+/*ADMIN GLOBAL INVENTORY*/
+/* --- ESTILOS DE INVENTARIO (Claymorphism) --- */
+
+        /* Badges de Categoría */
+        .badge-cat {
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cat-cars { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .cat-home { background-color: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
+        .cat-tech { background-color: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+        .cat-fashion { background-color: #fef9c3; color: #a16207; border: 1px solid #fde047; }
+
+        /* Badges de Estado del Producto */
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .st-active { background-color: #dcfce7; color: #15803d; }
+        .st-sold { background-color: #e2e8f0; color: #64748b; text-decoration: line-through; }
+        .st-pending { background-color: #dbeafe; color: #1d4ed8; }
+
+        /* Botones de Acción */
+        .btn-icon-clay {
+            width: 32px; height: 32px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 8px;
+            border: none;
+            transition: all 0.2s;
+            margin-right: 4px;
+        }
+        .btn-view { background-color: #f1f5f9; color: #475569; }
+        .btn-view:hover { background-color: #e2e8f0; color: #1e293b; }
+
+        .btn-delete-listing {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+            border-radius: 8px;
+            font-weight: 700;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+        .btn-delete-listing:hover {
+            background-color: #dc2626;
+            color: white;
+            border-color: #dc2626;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Ajustes de Tabla */
+        .product-img-thumb {
+            width: 50px; height: 50px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #f1f5f9;
+        }
+        .ref-id {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-weight: 700;
+        }
+/*ADMIN GLOBAL TRANSACTIONS*/
+
+        /* Badges de Estado Financiero */
+        .badge-finance {
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .fin-completed { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .fin-pending { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; } /* Escrow */
+        .fin-dispute { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+        .fin-refunded { background-color: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; text-decoration: line-through; }
+
+        /* Botones de Acción Financiera */
+        .btn-pdf {
+            background-color: #f8fafc;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 10px;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover { background-color: #e2e8f0; color: #334155; }
+
+        .btn-refund {
+            background-color: #fff1f2;
+            color: #e11d48;
+            border: 1px solid #fda4af;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .btn-refund:hover {
+            background-color: #e11d48;
+            color: white;
+            box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Tipografía de Datos */
+        .trx-id {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: -0.5px;
+        }
+        .amount-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--navy-dark);
+        }

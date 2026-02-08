@@ -14,10 +14,12 @@
 <body class="bg-light">
 
     <div class="d-flex min-vh-100">
-        <aside class="sidebar-stilnovo p-4 d-none d-lg-flex flex-column">
+        <aside class="sidebar-stilnovo p-4 d-none d-lg-flex flex-column" style="width: 280px !important; min-width: 280px !important; flex-shrink: 0;">
             <div class="logo-wrapper mb-5">
-                <img src="images/logo.png" alt="Stilnovo" class="logo-img">
-                <span class="brand">Stilnovo</span>
+                <a href="index.html" class="text-decoration-none d-flex align-items-center gap-2">
+                    <img src="images/logo.png" alt="Stilnovo" class="logo-img">
+                    <span class="brand">Stilnovo</span>
+                </a>
             </div>
             
             <nav class="nav flex-column gap-1">
@@ -25,14 +27,16 @@
                 <a class="nav-link-stilnovo" href="user-products-page.html"><i class="fa-solid fa-box-open"></i> My Products</a>
                 <a class="nav-link-stilnovo" href="favorite-products-page.html"><i class="fa-solid fa-heart"></i> Favorites</a>
                 <a class="nav-link-stilnovo" href="sales-and-orders-page.html"><i class="fa-solid fa-handshake"></i> Sales & Orders</a>
-                <a class="nav-link-stilnovo" href="message-page.html"><i class="fa-solid fa-comment-dots"></i> Messages</a>
                 <a class="nav-link-stilnovo" href="statistics-page.html"><i class="fa-solid fa-magnifying-glass-chart"></i> Statistics</a>
-                
                 <a class="nav-link-stilnovo" href="user-setting-page.html"><i class="fa-solid fa-user-gear"></i> Settings</a>
                 <a class="nav-link-stilnovo text-muted" href="help-center-page.html"><i class="fa-solid fa-circle-question"></i> Help Center</a>
             </nav>
         
             <div class="mt-auto pt-4 border-top">
+                <a href="index.html" class="btn-sell w-100 d-flex align-items-center justify-content-center gap-2 text-decoration-none shadow-sm mb-3" style="height: 45px; font-size: 0.9rem;">
+                    <i class="fa-solid fa-shop"></i> Browse Market
+                </a>
+
                 <a href="index.html" class="nav-link-stilnovo logout-link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
                 </a>
@@ -49,7 +53,7 @@
                 <div class="d-flex align-items-center gap-4">
                     <div class="d-flex gap-3 d-none d-md-flex">
                         <button class="btn-about py-2 px-3 small"><i class="fa-solid fa-calendar-day me-2"></i> Oct 2023</button>
-                        <button class="btn-sell py-2 px-3 small" style="height: auto;"><i class="fa-solid fa-file-export me-2"></i> Export</button>
+                        <button class="btn-sell py-2 px-3 small" style="height: auto;"><i class="fa-solid fa-file-export me-2"></i> Export PDF</button>
                     </div>
             
                     <div class="vr opacity-10 d-none d-md-block" style="height: 40px;"></div>
@@ -86,12 +90,18 @@
                         <h3 class="fw-800 h5 mb-4">Monthly Revenue Trend</h3>
                         <div class="chart-container-css">
                             <svg viewBox="0 0 500 150" class="svg-chart">
-                                <path d="M0,120 C50,130 80,60 120,80 C160,100 200,140 250,90 C300,40 350,110 400,60 C450,10 500,30" 
-                                        fill="none" stroke="#2f6ced" stroke-width="4" />
-                                <path d="M0,120 C50,130 80,60 120,80 C160,100 200,140 250,90 C300,40 350,110 400,60 C450,10 500,30 L500,150 L0,150 Z" 
-                                        fill="rgba(47, 108, 237, 0.05)" />
+                                <defs>
+                                    <linearGradient id="gradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:rgba(47, 108, 237, 0.2);stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:rgba(47, 108, 237, 0);stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,120 C80,140 150,60 250,80 C350,100 420,40 500,20 L500,150 L0,150 Z" 
+                                      fill="url(#gradientBlue)" />
+                                <path d="M0,120 C80,140 150,60 250,80 C350,100 420,40 500,20" 
+                                      fill="none" stroke="#2f6ced" stroke-width="4" stroke-linecap="round"/>
                             </svg>
-                            <div class="d-flex justify-content-between mt-3 text-muted x-small fw-700">
+                            <div class="d-flex justify-content-between mt-3 text-muted x-small fw-700 px-2">
                                 <span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>NOV</span>
                             </div>
                         </div>
@@ -100,11 +110,11 @@
                 <div class="col-lg-5">
                     <div class="clay-card p-4 h-100">
                         <h3 class="fw-800 h5 mb-4">Sales by Category</h3>
-                        <div class="bar-chart-css d-flex align-items-end justify-content-around">
-                            <div class="bar-item"><div class="bar-fill" style="height: 60%"></div><span>Fashion</span></div>
-                            <div class="bar-item"><div class="bar-fill" style="height: 90%"></div><span>Home</span></div>
-                            <div class="bar-item"><div class="bar-fill" style="height: 40%"></div><span>Tech</span></div>
-                            <div class="bar-item"><div class="bar-fill" style="height: 75%"></div><span>Sports</span></div>
+                        <div class="bar-chart-css d-flex align-items-end justify-content-around h-75">
+                            <div class="bar-item"><div class="bar-fill" style="height: 40%"></div><span>FASHION</span></div>
+                            <div class="bar-item"><div class="bar-fill" style="height: 80%"></div><span>HOME</span></div>
+                            <div class="bar-item"><div class="bar-fill" style="height: 30%"></div><span>TECH</span></div>
+                            <div class="bar-item"><div class="bar-fill" style="height: 60%"></div><span>SPORTS</span></div>
                         </div>
                     </div>
                 </div>
@@ -113,30 +123,37 @@
             <div class="clay-card p-4 mb-5">
                 <h3 class="fw-800 h5 mb-4">Recent Activity</h3>
                 <div class="table-responsive">
-                    <table class="table align-middle">
-                        <thead class="x-small text-muted fw-800">
+                    <table class="table align-middle table-hover">
+                        <thead class="x-small text-muted fw-800 border-light">
                             <tr>
-                                <th>ITEM NAME</th>
-                                <th>DATE</th>
-                                <th>CUSTOMER</th>
-                                <th>AMOUNT</th>
-                                <th>STATUS</th>
+                                <th class="pb-3 ps-3">ITEM NAME</th>
+                                <th class="pb-3">DATE</th>
+                                <th class="pb-3">CUSTOMER</th>
+                                <th class="pb-3">AMOUNT</th>
+                                <th class="pb-3 pe-3">STATUS</th>
                             </tr>
                         </thead>
                         <tbody class="fw-700 small">
                             <tr>
-                                <td>Eames Lounge Chair</td>
+                                <td class="ps-3 py-3">Eames Lounge Chair</td>
                                 <td class="opacity-50">Oct 24, 2023</td>
                                 <td>Sarah Jenkins</td>
                                 <td style="color: var(--brand-blue)">$6,450.00</td>
-                                <td><span class="badge rounded-pill bg-success-subtle text-success">Completed</span></td>
+                                <td class="pe-3"><span class="badge rounded-pill bg-success-subtle text-success px-3 py-2">Completed</span></td>
                             </tr>
                             <tr>
-                                <td>Arco Floor Lamp</td>
+                                <td class="ps-3 py-3">Arco Floor Lamp</td>
                                 <td class="opacity-50">Oct 22, 2023</td>
                                 <td>Michael Ross</td>
                                 <td style="color: var(--brand-blue)">$3,200.00</td>
-                                <td><span class="badge rounded-pill bg-primary-subtle text-primary">Shipped</span></td>
+                                <td class="pe-3"><span class="badge rounded-pill bg-primary-subtle text-primary px-3 py-2">Shipped</span></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-3 py-3">Braun SK4 Record Player</td>
+                                <td class="opacity-50">Oct 20, 2023</td>
+                                <td>David Fincher</td>
+                                <td style="color: var(--brand-blue)">$1,850.00</td>
+                                <td class="pe-3"><span class="badge rounded-pill bg-warning-subtle text-warning px-3 py-2">Pending</span></td>
                             </tr>
                         </tbody>
                     </table>
