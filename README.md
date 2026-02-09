@@ -19,7 +19,7 @@ Stilnovo es una plataforma de compra/venta de objetos usados enfocada en dar un 
 ### **Entidades**
 Indicar las entidades principales que gestionará la aplicación y las relaciones entre ellas:
 
-1. **Usuario**: Almacena información personal, roles y avatar.
+1. **Usuario**: Almacena información personal, roles, avatar y Balance Económico actual.
 2. **Producto**: Artículos para la venta con descripción, precio, categoría y fotos.
 3. **Transacción**: Registra el proceso de compra vinculando a un comprador, un vendedor y un producto.
 4. **Valoración**: Sistema de feedback con comentario y puntuación tras una transacción.
@@ -38,7 +38,7 @@ Describir los permisos de cada tipo de usuario e indicar de qué entidades es du
   - No es dueño de ninguna entidad
 
 * **Usuario Registrado**: 
-  - Permisos: Publicar artículos con fotos, realizar compras, acceder a su historial y gestionar su perfil con avatar.
+  - Permisos: Publicar artículos con fotos, realizar compras, acceder a su historial detallado de sus compras y ventas, gestionar su perfil con avatar, gestionar su inventario, editar/borrar artículos subidos, visualización de analíticas (puntuación del vendedor, ingresos, distribución por categorias, etc) y generación de PDFs (facturas y datos analíticos), Digital Seller Card con código QR (para la verificación de identidad en encuentros físicos) entre otros.
   - Es dueño de: Sus propios productos publicados, su perfil de usuario y las valoraciones que emita.
 
 * **Administrador**: 
@@ -52,47 +52,159 @@ Indicar qué entidades tendrán asociadas una o varias imágenes:
 - **Producto**: Múltiples fotos descriptivas por cada artículo anunciado.
 
 ### **Gráficos**
-Indicar qué información se mostrará usando gráficos y de qué tipo serán:
+Para ofrecer una experiencia de gestión basada en datos, la aplicación integra visualizaciones dinámicas que permiten al usuario y al administrador monitorizar el rendimiento comercial en tiempo real.
 
-- **Gráfico 1**: Cantidad de productos vendidos por categoría - Gráfico de barras.
-- **Gráfico 2**: Evolución de ingresos por ventas del usuario en los últimos meses - Gráfico de líneas.
+- **Gráfico 1**: Distribución de Ventas por Categoría (Donut Chart): Ubicado en el Dashboard de usuario, este gráfico representa proporcionalmente el éxito de ventas en las categorías de Home, Tech, Art y Cars.
+- **Gráfico 2**: Evolución de Ingresos Mensuales (Line Chart): Visualización temporal que muestra la tendencia de ingresos del usuario a lo largo del año (user-statistics.jpg), facilitando la identificación de picos de demanda.
+- **Gráfico 3**: Análisis de Visitas vs. Interés (Bar Chart): Gráfico de barras comparativo que mide el tráfico recibido frente a las interacciones reales (favoritos/compra) por cada tipo de producto.
   
 ### **Tecnología Complementaria**
-Indicar qué tecnología complementaria se empleará:
+Se han seleccionado tecnologías que extienden las capacidades básicas de la web para simular un entorno de producción real.
 
-- Websockets: Para implementar un chat en tiempo real entre compradores y vendedores.
-- Generación de PDFs: Creación automática de recibos de compra o etiquetas de envío tras una transacción.
-- Envío de correos: Notificaciones automáticas con el resumen de la compra en formato PDF.
+- **Generación de PDFs**: Implementación de una librería para la creación automática de facturas y recibos de compra, descargables directamente desde el panel de órdenes, así como la generación de PDFs con las analíticas del usuario y de etiquetas de envío tras una transacción.
+- **Envío de Correos (Mail Service)**: Integración de un servicio de mensajería para gestionar la comunicación inicial entre interesados. Al pulsar "Send Message", el sistema dispara un correo automático al vendedor con los detalles de la consulta del comprador.
 
 ### **Algoritmo o Consulta Avanzada**
-Indicar cuál será el algoritmo o consulta avanzada que se implementará:
+El sistema no se limita a mostrar datos, sino que procesa la actividad del usuario para personalizar su experiencia de navegación.
 
 - **Algoritmo/Consulta**: Sistema de Recomendaciones personalizado.
-- **Descripción**: Muestra en la página de inicio "Productos que te pueden interesar" basándose en las categorías que el usuario ha comprado o visitado previamente
+- **Descripción**: Muestra en la página de inicio "Productos que te pueden interesar" basándose en las categorías que el usuario ha comprado o visitado previamente.
 
 ---
 
 ## 🛠 **Preparación 2: Maquetación de páginas con HTML y CSS**
 
 ### **Vídeo de Demostración**
-📹 **[Enlace al vídeo en YouTube](https://www.youtube.com/watch?v=x91MPoITQ3I)**
+📹 **[Enlace al vídeo en YouTube](https://youtu.be/lXqGTZpMamk?si=9I0j98zrY1fShL06)**
 > Vídeo mostrando las principales funcionalidades de la aplicación web.
 
 ### **Diagrama de Navegación**
 Diagrama que muestra cómo se navega entre las diferentes páginas de la aplicación:
 
-![Diagrama de Navegación](images/navigation-diagram.png)
+![Diagrama de Navegación](templates/images/README-FOTOS/Stilnovo-Diagrama-Navegacion.png)
 
-> [Descripción opcional del flujo de navegación: Ej: "El usuario puede acceder desde la página principal a todas las secciones mediante el menú de navegación. Los usuarios anónimos solo tienen acceso a las páginas públicas, mientras que los registrados pueden acceder a su perfil y panel de usuario."]
+**Descripción del flujo de navegación:**  
+Mapa visual que organiza la navegación por colores (Azul: Todos los Usuarios, Amarillo: Usuario Registrado, Verde: Administrador) y utiliza las miniaturas de las capturas de la siguiente sección como nodos del sistema.
 
 ### **Capturas de Pantalla y Descripción de Páginas**
 
 #### **1. Página Principal / Home**
-![Página Principal](images/home-page.png)
+![Página Principal](templates/images/README-FOTOS/main-photo.png)
 
-> [Descripción breve: Ej: "Página de inicio que muestra los productos destacados, categorías principales y un banner promocional. Incluye barra de navegación y acceso a registro/login para usuarios no autenticados."]
+**Descripción:**
+Punto de entrada principal que presenta la propuesta de valor y permite la navegación hacia el catálogo y los formularios de acceso.
 
-#### **AQUÍ AÑADIR EL RESTO DE PÁGINAS**
+#### **2. Catálogo Público (Featured Treasures) / Home**
+![Página Principal](templates/images/README-FOTOS/main-photo-2.png)
+
+**Descripción:**
+Visualización de la entidad Producto con datos de ejemplo representativos, permitiendo al usuario anónimo consultar el stock disponible.
+
+#### **3. Detalle de Producto**
+![Detalle de Producto](templates/images/README-FOTOS/user-moreInfo-product-1.png)
+
+**Descripción:**
+Vista completa de la entidad con especificaciones técnicas, precio y acceso a la tecnología de contacto por email.
+
+#### **4. Detalle Técnico y Motor de Recomendaciones**
+![Detalle Técnico y Motor de Recomendaciones](templates/images/README-FOTOS/user-moreInfo-pro-2.png)
+
+**Descripción:**
+Parte inferior de la ficha de producto que muestra las especificaciones y la descripción del vendedor. Destaca la sección "You may also like", que es la representación visual del Algoritmo Avanzado: el sistema consulta la base de datos para sugerir dinámicamente artículos de categorías afines o complementarias al producto actual.
+
+#### **5. Interfaz de Autenticación**
+![Interfaz de Autentificacion](templates/images/README-FOTOS/user-login.png)
+
+**Descripción:**
+Formulario de acceso gestionado por roles para discriminar entre el panel de usuario y el panel de administración.
+
+#### **6. Registro de Usuarios**
+![Interfaz de Autentificacion](templates/images/README-FOTOS/user-signup.png)
+
+**Descripción:**
+Interfaz que permite la creación de nuevas cuentas en la base de datos para interactuar con el marketplace.
+
+#### **Área Privada (Usuario Registrado)**
+
+#### **7. Panel de Actividad (Analytics Overview)**
+![Panel de Actividad](templates/images/README-FOTOS/user-dashboard.png)
+
+**Descripción:**
+Vista personalizada que utiliza gráficos para monitorizar los ingresos y las ventas del usuario.
+
+#### **8. Gestión de Inventario Propio**
+![Inventario Propio](templates/images/README-FOTOS/user-myproducts.png)
+
+**Descripción:**
+Listado de la entidad Producto donde el dueño puede visualizar sus anuncios y acceder a las opciones de borrado o edición.
+
+#### **9. Formulario de Publicación**
+![Formulario de Publicación](templates/images/README-FOTOS/user-create-product.png)
+
+**Descripción:**
+Interfaz para la creación de nuevos elementos en la base de datos, incluyendo la subida de imágenes.
+
+#### **10. Formulario de Edición**
+![Formulario de Edición](templates/images/README-FOTOS/user-edit.png)
+
+**Descripción:**
+Interfaz para la edición de elementos en la base de datos, incluyendo la cambio de imágenes.
+
+#### **11. Productos Favoritos**
+![Productos Favoritos](templates/images/README-FOTOS/user-favs.png)
+
+**Descripción:**
+Listado de la entidad Producto donde el dueño podrá visualizar productos agregados como "Favoritos".
+
+#### **12. Historial de Transacciones**
+![Historial de Transacciones](templates/images/README-FOTOS/user-sales-orders.png)
+
+**Descripción:**
+Registro de compras y ventas que integra la Tecnología Complementaria de generación de facturas en PDF.
+
+
+#### **13. Análisis de Datos G1 y G2**
+![Análisis de Datos G1 y G2](templates/images/README-FOTOS/user-statistics.png)
+
+**Descripción:**
+Implementación de gráficos de líneas y tarta para visualizar la evolución de ingresos y ventas por categoría.
+
+#### **14. Gráfico de Interés G3**
+![Gráfico de Interés G3](templates/images/README-FOTOS/user-statistics-2.png)
+
+**Descripción:**
+Gráfico de barras avanzado que compara visitas frente a interacciones reales por categoría de producto.
+
+#### **15. Perfil y Verificación**
+![Perfil y Verificación](templates/images/README-FOTOS/user-setting-1.png)
+
+**Descripción:**
+Gestión de datos personales y visualización de la Digital Seller Card para transacciones seguras.
+
+#### **Administrador**
+#### **16. Monitor Global de la Plataforma**
+![Monitor Global de la Plataforma](templates/images/README-FOTOS/admin-dashboars.png)
+
+**Descripción:**
+Dashboard exclusivo con KPIs de sistema, usuarios reportados y volumen total de anuncios.
+
+#### **17. Gestión de Usuarios**
+![Gestión de Usuarios](templates/images/README-FOTOS/admin-user-managme.png)
+
+**Descripción:**
+Herramienta de moderación que permite al administrador realizar acciones de baneo o purga de datos sobre cualquier perfil.
+
+#### **18. Inventario Global**
+![Inventario Global](templates/images/README-FOTOS/admin-global-invento.png)
+
+**Descripción:**
+Registro maestro de todos los productos del marketplace, con permisos para editar o eliminar cualquier anuncio fraudulento.
+
+#### **19. Auditoría Financiera**
+![Auditoría Financiera](templates/images/README-FOTOS/admin-transactions.png)
+
+**Descripción:**
+Vista de la entidad Transacción a nivel global para gestionar disputas y reembolsos.
 
 ---
 

@@ -6,12 +6,10 @@
     <title>Stilnovo</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
+<<<<<<< HEAD
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
@@ -36,15 +34,21 @@
         }
     </script>
     </head>
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+>>>>>>> e4663822ed26c5d0d46d527b1d31f287308c8717
 <body>
 
-    <header class="navbar">
+    <header class="navbar container-fluid px-lg-5 py-3">
         <div class="logo-wrapper">
             <img src="images/logo.png" alt="Stilnovo" class="logo-img">
             <span class="brand">Stilnovo</span>
         </div>
         
-        <div class="search-box">
+        <div class="search-box d-none d-md-flex">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search for treasures...">
         </div>
@@ -55,36 +59,27 @@
         </nav>
     </header>
 
-    <nav class="sub-nav">
-        <div class="sub-nav-container">
-            <span class="label-categories">Categories</span>
-            <div class="category-list">
-                <a href="#">Fashion</a>
-                <a href="#">Technology</a>
-                <a href="#">Sports</a>
-                <a href="#">Home</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="hero">
-        <div class="hero-flex">
-            <div class="hero-text-block">
-                <h1 class="animate-up">Reinvent your space: Where design with history finds its new home.</h1>
-                <p class="animate-up-delay">Start buying or selling your items today</p>
-                
-                <div class="hero-btns animate-up-delay">
-                    <a href="sell-page.html" class="btn-sell">Sell Now</a>
-                    <a href="about-page.html" class="btn-about">About Us</a>
+    <div class="hero-wrapper">
+        <nav class="sub-nav">
+            <div class="container d-flex justify-content-center align-items-center gap-4 py-3">
+                <span class="label-categories">Categories</span>
+                <div class="category-list d-flex gap-4">
+                    <a href="#">Fashion</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Cars</a>
+                    <a href="#">Home</a>
                 </div>
             </div>
-            
-            <div class="hero-visual-block">
-                <img src="images/main-banner.png" alt="Stilnovo Items" class="clay-float">
-            </div>
-        </div>
-    </main>
+        </nav>
+    
+        <main class="hero container d-flex align-items-center justify-content-center flex-grow-1">
+            <div class="row align-items-center w-100">
+                <div class="col-lg-6 hero-text-block">
+                    <h1 class="fw-800">Reinvent your space: Where design with history finds its new home.</h1>
+                    <p class="hero-subtitle mt-3">Start buying or selling your items today</p>
+                    <div class="hero-btns mt-5 d-flex gap-3">
 
+<<<<<<< HEAD
     <section class="w-full max-w-[1440px] mx-auto px-6 py-12 font-display">
         <h2 class="text-2xl font-bold text-[#1a365d] mb-6 font-display">New Arrivals</h2>
         
@@ -178,7 +173,105 @@
     </section>
     <div class="footer-divider">
         <span>Curated items section starts below</span>
+=======
+                        <a href="signup-page.html" class="btn-sell">Sell Now</a>
+                        <a href="about-page.html" class="btn-about">About Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center position-relative">
+                    <div class="hero-glow"></div>
+                    <img src="images/main-banner.png" alt="Stilnovo" class="clay-float img-fluid position-relative z-1">
+                </div>
+            </div>
+        </main>
+>>>>>>> e4663822ed26c5d0d46d527b1d31f287308c8717
     </div>
 
+    <div class="content-divider">
+        <div class="container text-center py-4">
+            <p class="divider-phrase">Curated treasures waiting for a new chapter</p>
+        </div>
+    </div>
+
+    <section class="container product-grid-container pt-5">
+        <h2 class="fw-800 mb-5 text-center">Featured Treasures</h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="info-product-page.html" class="text-decoration-none text-dark">
+                    <div class="clay-card">
+                        <div class="img-container">
+                            <img src="images/coche.png" alt="Audi A3">
+                            <button class="favorite-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                        </div>
+                        <div class="product-details">
+                            <h3>Audi A3</h3>
+                            <p class="price">42,500€</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="info-product-page.html" class="text-decoration-none text-dark">
+                    <div class="clay-card">
+                        <div class="img-container">
+                            <img src="images/lampar.png" alt="Lamp">
+                            <button class="favorite-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                        </div>
+                        <div class="product-details">
+                            <h3>Lamp for house</h3>
+                            <p class="price">100€</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="info-product-page.html" class="text-decoration-none text-dark">
+                    <div class="clay-card">
+                        <div class="img-container">
+                            <img src="images/movil.png" alt="Iphone">
+                            <button class="favorite-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                        </div>
+                        <div class="product-details">
+                            <h3>Iphone 14 pro</h3>
+                            <p class="price">875€</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="info-product-page.html" class="text-decoration-none text-dark">
+                    <div class="clay-card">
+                        <div class="img-container">
+                            <img src="images/abrigo.png" alt="Abrig">
+                            <button class="favorite-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                        </div>
+                        <div class="product-details">
+                            <h3>Abrigo Cuero</h3>
+                            <p class="price">250€</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 py-4">
+            <button id="load-more" class="btn-load-more">Load more results</button>
+            <div id="spinner" class="spinner-border text-primary d-none ms-2" role="status"></div>
+        </div>
+    </section>
+    
+    <footer class="footer-divider container-fluid py-5 text-center mt-5">
+        <span>© STILNOVO 2026 - ALL RIGHTS RESERVED</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
