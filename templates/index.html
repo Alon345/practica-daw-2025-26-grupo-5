@@ -9,30 +9,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-        tailwind.config = {
-            corePlugins: {
-                preflight: false,
-            },
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#2f6ced",
-                        "background-light": "#faf8fb",
-                        "background-dark": "#171220",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#231b2e",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                },
-            },
-        }
-    </script>
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
     <header class="navbar container-fluid px-lg-5 py-3">
@@ -72,99 +52,6 @@
                     <p class="hero-subtitle mt-3">Start buying or selling your items today</p>
                     <div class="hero-btns mt-5 d-flex gap-3">
 
-    <section class="w-full max-w-[1440px] mx-auto px-6 py-12 font-display">
-        <h2 class="text-2xl font-bold text-[#1a365d] mb-6 font-display">New Arrivals</h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <div class="group bg-surface-light rounded-xl overflow-hidden border border-[#ece8f2] hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <div class="relative aspect-square overflow-hidden bg-gray-100">
-                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFsfPL-J_jCYe0qcbdC3QJ4Sx3fJpbOuOagoIfa4D_AD6gSR8w5pEne-3L1QxDYQE1nQEjmU3ejo30DiJvXE-1rUkEvDCZi78YfvepYIAm1cDM_cooufgb_XQHtKNqH3pJCLsEM-kcOg6pIdc024WVDLKR3vZZxUEeWIA_jtgXwqqLd2a2kgOAR_MvPaS1Vh82iCna4OCqF9BHJ2vORY6xqYLs2EHZ8lHc3X_80e0sxb-TtuHZJBeaW5c2AvticgzLS213hZ1kBA4" alt="Eames Lounge Chair"/>
-                    <button class="absolute top-3 right-3 size-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:scale-110 transition-all border-none cursor-pointer">
-                        <span class="material-symbols-outlined text-[20px]">favorite</span>
-                    </button>
-                </div>
-                <div class="p-4 text-left">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-[#1a365d] text-lg truncate pr-2 m-0">Eames Lounge Chair</h3>
-                    </div>
-                    <p class="text-primary font-extrabold text-lg mb-2 m-0">$4,500</p>
-                    <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-                        <div class="size-6 rounded-full bg-gray-200 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUUOeoPSUHa5yC1uP9WSVWAWRRDuaz11NgdX44uVpFwhi9oSPiV4xWR6mVdHtP_jeJO1gUjgsbM2y6ed9spHhskGwvLSjrMOfHjBVeVqLnv4aRTVekPlqchnHo77nAnC_AlSVsmZih6H6BpLRhJPHM7C4y4ragf6q947RnZNzkgIQqaDTNRgVE-UeM97NcqzBSI4QyqmdwiPC9idGwxAsEr3SkrJcbAMIg_vn8nXrkG2qPVcwRamPp2Dnu1eywFfZZT2Pwv4gr9Ew" alt="Seller avatar"/>
-                        </div>
-                        <span class="text-xs text-gray-500 font-medium">MidCenturyModerns</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group bg-surface-light rounded-xl overflow-hidden border border-[#ece8f2] hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <div class="relative aspect-square overflow-hidden bg-gray-100">
-                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2MFbE7VE-IZ3iqd-DkczRO_DjZH28SQTlV2e-hazCG_2XAyAoZeLHd68Us6CbGLCYhP3c-28P3PEm_DjOOj4KtMd514CDv-6x6BvXYR-21Czgm9JZiieOyBXRU_vkO1SEC-ezPJbCQGgfhvmfo1NbFppRERaEat3JbWl5fFVaET6Ap6621ANRw5oALN_nUoy-qrZkaNZqBF95-IXsC7_MRiEQ88xYfobgCiICRWPZKj7uOIKmJAcFAb4eYja8WR8URza0PbqCxmo" alt="Bauhaus Lamp"/>
-                    <button class="absolute top-3 right-3 size-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:scale-110 transition-all border-none cursor-pointer">
-                        <span class="material-symbols-outlined text-[20px]">favorite</span>
-                    </button>
-                </div>
-                <div class="p-4 text-left">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-[#1a365d] text-lg truncate pr-2 m-0">Bauhaus Lamp</h3>
-                    </div>
-                    <p class="text-primary font-extrabold text-lg mb-2 m-0">$350</p>
-                    <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-                        <div class="size-6 rounded-full bg-gray-200 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeW8ayNInhPqR8ysuES4nWwXvS476Ry-sC477tTavRNoJp_ZveVBWVNoTi60swjYay6EmZ0PGYuYHScY2_aMF-QQYzLFs0F1h9RpACWpOwBi647-UBcwRVbbiJwndhppXb9ufpnjbLreFEFPXzxX_h1VA5crH55tnhwL2TN-T8D3aYF6BP51_2Mnd0nijGT9v5E0cmNXEpfeBTki3jBpOoiR4LtTHgRP0PmhWZuO98BniRwBMJoPQuN5T3vnBYWnG7AyhTz6t1i_s" alt="Seller avatar"/>
-                        </div>
-                        <span class="text-xs text-gray-500 font-medium">DesignHunter</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group bg-surface-light rounded-xl overflow-hidden border border-[#ece8f2] hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <div class="relative aspect-square overflow-hidden bg-gray-100">
-                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7AFW7FtlfYYRt_FggrKJ61cLIQOlztaTVP4BPzl-Lm6XpuzWaKrwo0j5tPTDwGwW81gZIcRSSnUX7qQaMF-8ST3xMkw_7Aoqb4OCESYIIB0YP4AuntvhC6N347_eoceRsS9m3iGC6Wz_A4plRumn5LIrWub-9LL-0SB8lwWsud9a95FWl7P_Wt70CZX4uN_mGgwVLjb_AukEGl4bGCs-JwKuXHVTli4_keei_Q5K5Lir7p4VbFScEroesku1epPZ4mbI4e8LeNnc" alt="Velvet Modular Sofa"/>
-                    <button class="absolute top-3 right-3 size-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:scale-110 transition-all border-none cursor-pointer">
-                        <span class="material-symbols-outlined text-[20px]">favorite</span>
-                    </button>
-                </div>
-                <div class="p-4 text-left">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-[#1a365d] text-lg truncate pr-2 m-0">Velvet Modular Sofa</h3>
-                    </div>
-                    <p class="text-primary font-extrabold text-lg mb-2 m-0">$2,100</p>
-                    <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-                        <div class="size-6 rounded-full bg-gray-200 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUqGxunH2JPlMByesZzovS-rmYkzlPL3K9VvVu3DZPidWSdJRecmnNIJC-WiXEwVw4912CYdwGfARIVOQfFSD09EThuQlowejSvhYXanyN-HQf-DcKT2ee5HP7cT3acLqX_OQUdmBa45Mzlg16FEGTV6UTfsxwdIqpKtCUJJlNKbTd-Pv1_kidfUkf8PtMasDXVJSOHxQT6-BMeXxpgyyZal9PyIlpGwYK_Urra69fMYF7xeBIFBu-dWUOYX5mTXv8PPg6fkaUdlA" alt="Seller avatar"/>
-                        </div>
-                        <span class="text-xs text-gray-500 font-medium">VelvetInteriors</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group bg-surface-light rounded-xl overflow-hidden border border-[#ece8f2] hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <div class="relative aspect-square overflow-hidden bg-gray-100">
-                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPO6lcMQp3bdufKGjWuooUZV2VACN440IzsjQkkOQ6VLVkn5gXel15hSQQxbLmKa_KTImR2InImFkJxbwLt86SvMvijjntbyNI2HRHLNPVE6nLaHjz-GefFi6d1QtmvH1jexWwPitWVDASQto1nDkvrSn7IkXyihTAYBgWD_JlTHRC1UTMJ4OdCrjyEieBD1-ax7CU8_PKRKuoxqFwKBNkfig671MnyIg-w001HgvTbk2gdDYxp_wAXQgYcs-Xh--UzIl3Jp0iP68" alt="Minimalist Oak Desk"/>
-                    <button class="absolute top-3 right-3 size-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:scale-110 transition-all border-none cursor-pointer">
-                        <span class="material-symbols-outlined text-[20px]">favorite</span>
-                    </button>
-                </div>
-                <div class="p-4 text-left">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-[#1a365d] text-lg truncate pr-2 m-0">Minimalist Oak Desk</h3>
-                    </div>
-                    <p class="text-primary font-extrabold text-lg mb-2 m-0">$800</p>
-                    <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-                        <div class="size-6 rounded-full bg-gray-200 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtj4OGrbomtKCIiVMsVZ3NjUXHhjrBxe6UzipAD6OYG7GDZQT1GeFigaaVBX-cfPyzu89VjH1c8lntYrDttdOmQC7N32c6puOVIjKASE3Ii3Vs0k8ONWLZCOmHPdsR1U0WQ34xaAUmdFSex0cV8pRAIE5Wirvh_42UvRRjUBiNopAnxk8n10cNLuQ-mPnZ2MHpbgV9clAa0x5dm-PAeIPZ_xMepa4872zGCHupwFZGBBXOSsyI45QCEs92HiNHiCPA3i7373vMzDY" alt="Seller avatar"/>
-                        </div>
-                        <span class="text-xs text-gray-500 font-medium">ScandiHome</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <div class="footer-divider">
-        <span>Curated items section starts below</span>
                         <a href="signup-page.html" class="btn-sell">Sell Now</a>
                         <a href="about-page.html" class="btn-about">About Us</a>
                     </div>
