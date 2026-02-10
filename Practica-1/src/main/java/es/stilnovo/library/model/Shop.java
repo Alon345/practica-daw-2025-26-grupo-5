@@ -1,4 +1,4 @@
-package main.java.es.stilnovo.library.model;
+package es.stilnovo.library.model;
 
 import java.util.List;
 
