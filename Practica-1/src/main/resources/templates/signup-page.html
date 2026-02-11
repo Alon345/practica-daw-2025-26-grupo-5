@@ -36,11 +36,19 @@
                     <p class="hero-subtitle small">Create your profile to start trading</p>
                 </div>
 
-                <form>
+                
+                {{#error}}
+                    <div class="alert alert-danger py-2 small fw-700 rounded-3 mb-4">
+                    <i class="fa-solid fa-triangle-exclamation me-2"></i> {{error}}
+                    </div>
+                {{/error}}
+
+                <!--SIGNUP FORM-->
+                <form action="/signup-page" method="post" enctype="multipart/form-data">
                     <div class="text-center mb-3">
                         <div class="profile-upload-container mx-auto">
                             <i class="fa-solid fa-user-plus text-muted"></i>
-                            <input type="file" id="profilePic" accept="image/*" class="file-input-hidden">
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="file-input-hidden">
                         </div>
                         <label for="profilePic" class="form-label fw-700 x-small mt-1 d-block cursor-pointer" style="color: var(--brand-blue)">
                             Upload Avatar
@@ -52,31 +60,33 @@
                             <label class="form-label fw-700 x-small">Full Name</label>
                             <div class="search-box w-100 py-2">
                                 <i class="fa-solid fa-id-card small"></i>
-                                <input type="text" placeholder="Your name" required>
+                                <input type="text" name="username" placeholder="Your name" required>
                             </div>
                         </div>
                         <div class="col-12 mb-2">
                             <label class="form-label fw-700 x-small">Email Address</label>
                             <div class="search-box w-100 py-2">
                                 <i class="fa-solid fa-envelope small"></i>
-                                <input type="email" placeholder="email@stilnovo.com" required>
+                                <input type="email" name="email" placeholder="email@stilnovo.com" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <label class="form-label fw-700 x-small">Password</label>
                             <div class="search-box w-100 py-2">
                                 <i class="fa-solid fa-lock small"></i>
-                                <input type="password" placeholder="••••••" required>
+                                <input type="password" name="password" placeholder="••••••" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-700 x-small">Confirm</label>
                             <div class="search-box w-100 py-2">
                                 <i class="fa-solid fa-check-double small"></i>
-                                <input type="password" placeholder="••••••" required>
+                                <input type="password" name="confirmPassword" placeholder="••••••" required>
                             </div>
                         </div>
                     </div>
+
+                    <input type="hidden" name="_csrf" value="{{token}}">
 
                     <button type="submit" class="btn-sell w-100 justify-content-center mb-3">
                         Create Account
@@ -88,12 +98,13 @@
                         </a>
                     </div>
                 </form>
+                <!--END SIGNUP FORM-->
+
             </div>
         </div>
     </div>
 
-    <footer class="footer-divider container-fluid py-5 text-center">
-        <span>© STILNOVO 2026 - ALL RIGHTS RESERVED</span>
-    </footer>
+    {{>footer}}
+
 </body>
 </html>

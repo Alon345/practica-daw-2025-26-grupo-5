@@ -58,8 +58,8 @@ public class DataBaseInitializer {
         Blob photoAdminBlob = BlobProxy.generateProxy(defaultAdminImage.getInputStream(), defaultAdminImage.contentLength());
 
         // 1. Initialize sample users with encrypted passwords and roles
-        User user = new User("user", passwordEncoder.encode("user"), photoUserBlob, 4.7,"USER");
-        User admin = new User("admin", passwordEncoder.encode("admin"), photoAdminBlob, 5.0,"USER", "ADMIN");
+        User user = new User("user", passwordEncoder.encode("user"), "user@stilnovo.es", photoUserBlob, 4.7,"USER");
+        User admin = new User("admin", passwordEncoder.encode("admin"), "admin@stilnovo.es", photoAdminBlob, 5.0,"USER", "ADMIN");
 
         userRepository.save(user);
         userRepository.save(admin);

@@ -19,7 +19,7 @@ public class LoginWebController {
         return "login-page";
     }
 
-    @GetMapping("/login-error-page")
+    @GetMapping("/login-error")
     public String loginError(Model model, HttpServletRequest request) {
         CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
         if (token != null) {

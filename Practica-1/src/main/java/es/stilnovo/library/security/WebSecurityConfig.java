@@ -42,8 +42,8 @@ public class WebSecurityConfig {
                 .requestMatchers("/css/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
                 
                 // AUTHENTICATION PAGES: Login and Signup flows
-                .requestMatchers("/login-page", "/login-error-page").permitAll()
-                .requestMatchers("/signup-page", "/signup-error-page").permitAll()
+                .requestMatchers("/login-page", "/error").permitAll()
+                .requestMatchers("/signup-page").permitAll()
                 
 				.requestMatchers("/product-images/**").permitAll()
                 // PRODUCT VIEWS: Public access to the marketplace and details

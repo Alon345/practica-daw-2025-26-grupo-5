@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,10 +20,10 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long userId;
 
-	public Long getId() {
-        return id;
+	public Long getUserId() {
+        return userId;
     }
 
 	private String name;
@@ -37,12 +38,16 @@ public class User {
 
 	private Double rating;
 	
+	@Column(unique = true, nullable = false) 
+	private String email;
+
 	public User() {
 	}
 
-	public User(String name, String encodedPassword, Blob profileImage, Double rating, String... roles) {
+	public User(String name, String encodedPassword, String email, Blob profileImage, Double rating, String... roles) {
 		this.name = name;
 		this.encodedPassword = encodedPassword;
+		this.email = email;
 		this.profileImage = profileImage;
 		this.rating = rating;
 		this.roles = List.of(roles);
@@ -54,6 +59,14 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	

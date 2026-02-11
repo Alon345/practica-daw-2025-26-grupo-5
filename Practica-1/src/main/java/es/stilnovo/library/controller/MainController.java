@@ -1,6 +1,5 @@
 package es.stilnovo.library.controller;
 
-import java.util.Optional;
 import jakarta.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import es.stilnovo.library.model.User;
 import es.stilnovo.library.repository.UserRepository;
 import es.stilnovo.library.service.ProductService;
 
@@ -28,15 +26,16 @@ public class MainController {
         Principal principal = request.getUserPrincipal();
 
         if (principal != null) {
-            model.addAttribute("logged", true);
-            model.addAttribute("userName", principal.getName());
-            model.addAttribute("admin", request.isUserInRole("ADMIN"));
-
-            // Get the user from the database to inject the ID into the templates
-            userRepository.findByName(principal.getName()).ifPresent(user -> {
-                model.addAttribute("userId", user.getId());
+            // Search user. If really exists in actual DB...
+            userRepository.findByName(principal.getName()).ifPresentOrElse(user -> {
+                model.addAttribute("logged", true);
+                model.addAttribute("username", user.getName());
+                model.addAttribute("userId", user.getUserId());
+                model.addAttribute("admin", request.isUserInRole("ADMIN"));
+            }, () -> {
+            // ...if not exists (fantasm user), we treat it like a no logged user
+                model.addAttribute("logged", false);
             });
-            
         } else {
             model.addAttribute("logged", false);
         }
