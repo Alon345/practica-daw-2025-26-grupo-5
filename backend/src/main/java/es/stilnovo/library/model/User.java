@@ -1,6 +1,7 @@
 package es.stilnovo.library.model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 
 @Entity(name = "UserTable")
 public class User {
@@ -97,6 +99,21 @@ public class User {
 
 	public void setRating(Double rating) { 
 		this.rating = rating; 
+	}
+
+	//Favorite products
+	@ManyToMany
+	private List<Product> favoriteProducts = new ArrayList<>();
+
+	public List<Product> getFavoriteProducts() {
+    	return favoriteProducts;
+	}
+
+	public void addFavorite(Product product) {
+		//if array not contain product then add it
+    	if (!this.favoriteProducts.contains(product)) {
+        	this.favoriteProducts.add(product);
+    	}
 	}
 
 }

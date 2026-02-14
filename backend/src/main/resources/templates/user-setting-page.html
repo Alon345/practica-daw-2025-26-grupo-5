@@ -35,50 +35,56 @@
                     <div class="clay-card p-4 p-md-5 settings-card">
                         <h2 class="fw-800 mb-4">Edit Profile</h2>
                         
-                        <form>
-                            <div class="mb-4 text-center">
+                        <!--we use user.userId because we added all the user object-->
+                        <form action="/update-settings/{{user.userId}}" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="_csrf" value="{{token}}"/> <div class="mb-4 text-center">
                                 <div class="profile-upload-container mx-auto mb-2">
-                                    <img src="/images/profile-photo.png" id="preview-avatar" class="img-fluid rounded-circle p-1" alt="Profile">
-                                    <input type="file" id="profilePic" accept="image/*" class="file-input-hidden">
+                                    <img src="/user/{{user.userId}}/profile-photo" id="preview-avatar" class="img-fluid rounded-circle p-1" 
+                                            alt="Profile" onerror="this.src='/images/profile-photo.png'">
+                                    
+                                    <input type="file" id="profilePic" name="profilePhoto" accept="image/*" class="file-input-hidden">
                                 </div>
                                 <label for="profilePic" class="form-label fw-700 small cursor-pointer" style="color: var(--brand-blue)">
                                     <i class="fa-solid fa-camera me-1"></i> Change profile picture
                                 </label>
                             </div>
-
+    
                             <div class="mb-4">
                                 <label class="label-categories mb-2 d-block">FULL NAME</label>
                                 <div class="search-box w-100 py-2">
                                     <i class="fa-solid fa-signature small"></i>
-                                    <input type="text" id="input-name" value="Alex Morgan" placeholder="Enter your name">
+                                    <input type="text" name="name" value="{{user.name}}" placeholder="Enter your name" required>
                                 </div>
                             </div>
-
+    
                             <button type="submit" class="btn-sell w-100 justify-content-center mb-5">Save Changes</button>
-
+    
                             <div class="p-3 rounded-4" style="background: rgba(47, 108, 237, 0.05); border-left: 4px solid var(--brand-blue);">
                                 <p class="mb-0 x-small fw-700" style="color: var(--navy-dark)">
                                     <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
-                                    <strong>Security Tip:</strong> Your Digital ID card is for personal use within the Stilnovo marketplace.
+                                    <strong>Security Tip:</strong> Your data is protected by Stilnovo's encryption protocols.
                                 </p>
                             </div>
-
+    
                             <div class="py-5 my-4"></div> 
-
+    
                             <div class="danger-zone-block pt-4 border-top">
                                 <p class="text-danger fw-800 mb-1 small">DANGER ZONE</p>
                                 <p class="x-small opacity-50 mb-3">Deleting your account is permanent. All data will be lost.</p>
-                                <button type="button" class="btn-delete-minimal">
-                                    <i class="fa-solid fa-trash-can me-2"></i>Delete account
-                                </button>
+                                
+                                <form action="/delete-account/{{user.userId}}" method="post" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                    <button type="submit" class="btn-delete-minimal">
+                                        <i class="fa-solid fa-trash-can me-2"></i>Delete account
+                                    </button>
+                                </form>
                             </div>
                         </form>
                     </div>
                 </div>
-
+    
                 <div class="col-lg-7 text-center card-column-adjust">
                     <p class="label-categories mb-4 opacity-50">YOUR DIGITAL SELLER CARD</p>
-                    
                     <div class="flip-card-container mx-auto">
                         <div class="flip-card-lizard">
                             <div class="flip-card-inner-lizard">
@@ -90,8 +96,8 @@
                                             <div class="lizard-chip"></div>
                                         </div>
                                         <div class="lizard-user mt-4">
-                                            <h3 id="card-name" class="fw-800">ALEX MORGAN</h3>
-                                            <p class="lizard-id">ID: 2026-ST-892</p>
+                                            <h3 id="card-name" class="fw-800 text-uppercase">{{user.name}}</h3>
+                                            <p class="lizard-id">ID: 2026-ST-{{user.userId}}</p>
                                         </div>
                                         <div class="lizard-footer d-flex justify-content-between align-items-end">
                                             <div class="lizard-valid"><span>VALID THRU</span><p>12/28</p></div>
@@ -101,14 +107,13 @@
                                 </div>
                                 <div class="flip-card-back-lizard">
                                     <i class="fa-solid fa-qrcode fa-5x"></i>
-                                    <p class="x-small mt-3 opacity-50">SCAN TO VERIFY</p>
+                                    <p class="x-small mt-3 opacity-50">SCAN TO VERIFY SELLER</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <p class="mt-4 text-muted small"><i class="fa-solid fa-rotate me-2"></i> Hover the card to flip it</p>
                 </div>
-
             </div>
         </div>
     </main>

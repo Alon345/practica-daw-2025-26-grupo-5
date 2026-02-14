@@ -91,7 +91,14 @@
                     <h1 class="fw-800">Reinvent your space: Where design with history finds its new home.</h1>
                     <p class="hero-subtitle mt-3">Start buying or selling your items today</p>
                     <div class="hero-btns mt-5 d-flex gap-3">
-                        <a href="/signup-page" class="btn-sell">Sell Now</a>
+                        {{#logged}} <!--If logged-->
+                            <a href="/user-products-page/{{userId}}" class="btn-sell">Sell Now</a>
+                        {{/logged}}
+                            
+                        {{^logged}} <!--If NOT logged-->
+                            <a href="/login-page" class="btn-sell">Sell Now</a>
+                        {{/logged}}
+                            
                         <a href="/about-page" class="btn-about">About Us</a>
                     </div>
                 </div>
@@ -125,9 +132,16 @@
                     <div class="clay-card">
                         <div class="img-container">
                             <img src="/product-images/{{images.0.id}}" alt="{{name}}">
-                            <button class="favorite-btn">
-                                <span class="material-symbols-outlined">favorite</span>
-                            </button>
+                            <!--
+                                This secction will be implemented in the future using js
+                            <form action="/add-favorite/{{id}}" method="post">
+                                <input type="hidden" name="_csrf" value="{{token}}"/>
+                                
+                                <button type="submit" class="favorite-btn border-0 bg-transparent">
+                                    <span class="material-symbols-outlined" style="color: #ff4757;">favorite</span>
+                                </button>
+                            </form>
+                        -->
                         </div>
                         <div class="product-details">
                             <h3>{{name}}</h3>

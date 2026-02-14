@@ -2,7 +2,6 @@ package es.stilnovo.library.controller;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -155,8 +154,8 @@ public class UserWebController {
 
     @GetMapping("/sales-and-orders-page/{id}")
     public String showSalesAndOrdersPage(Model model, @PathVariable long id,
-                                         @RequestParam(required = false) Long productId,
-                                         HttpServletRequest request) {
+                                        @RequestParam(required = false) Long productId,
+                                        HttpServletRequest request) {
 
         User user = userRepository.findById(id).orElseThrow();
 
@@ -210,19 +209,6 @@ public class UserWebController {
         return "statistics-page";
     }
 
-    @GetMapping("/user-setting-page/{id}")
-    public String showUserSettingPage(Model model, @PathVariable long id, HttpServletRequest request) {
-
-        User user = userRepository.findById(id).orElseThrow();
-
-        if (request.getUserPrincipal() == null || !request.getUserPrincipal().getName().equals(user.getName())) {
-            return "redirect:/error";
-        }
-
-        model.addAttribute("user", user);
-
-        return "user-setting-page";
-    }
 
     @GetMapping("/help-center-page/{id}")
     public String showHelpCenterPage(Model model, @PathVariable long id, HttpServletRequest request) {
@@ -361,5 +347,55 @@ public class UserWebController {
         return "redirect:/user-products-page/" + user.getUserId();
     }
     
+
+    /**To be implemented in the future
+    @GetMapping("/favorite-products-page/{id}")
+    public String showFavorites(@PathVariable long id, Model model) {
+        User user = userRepository.findById(id).orElseThrow();
+    
+        // We pass the list of favorites to the template 
+        model.addAttribute("favoriteProducts", user.getFavoriteProducts());
+        model.addAttribute("userId", id);
+    
+        return "favorite-products-page"; // Name of your .html file
+    }
+
+    @PostMapping("/add-favorite/{id}")
+    public String addFavorite(@PathVariable long id, HttpServletRequest request){
+
+        Principal principal = request.getUserPrincipal();
+        if (principal == null) return "redirect:/login-page";
+
+        User user = userRepository.findByName(principal.getName()).orElseThrow();
+
+        Product product = productRepository.findById(id).orElseThrow();
+        
+        user.addFavorite(product);
+        //update user
+        userRepository.save(user);
+
+        return "redirect:/";
+    }**/
+
+    @GetMapping("/user-setting-page/{id}")
+    public String showUserettings(Model model, @PathVariable long id, HttpServletRequest request){
+
+        Principal principal = request.getUserPrincipal();
+        if (principal == null) {
+            return "redirect:/login-page";
+        }
+
+        User loggedInUser = userRepository.findByName(principal.getName()).orElseThrow();
+        // 3. SECURITY CHECK: Ensure the user can only access their own settings [cite: 383]
+        if (loggedInUser.getUserId() != id) {
+            return "redirect:/error"; // Or access denied page
+        }
+
+        //we add all the user object 
+        model.addAttribute("user", loggedInUser);
+
+        return "/user-setting-page";
+
+    }
     
 }
