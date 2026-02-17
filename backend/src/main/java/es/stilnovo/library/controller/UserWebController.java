@@ -31,6 +31,7 @@ import es.stilnovo.library.repository.UserRepository;
 import es.stilnovo.library.repository.ValorationRepository;
 import es.stilnovo.library.service.ProductService;
 import es.stilnovo.library.service.UserService;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -410,6 +411,25 @@ public class UserWebController {
 
         // 3. Redirect back with success flag
         return "redirect:/user-setting-page/" + id + "?updated=true";
+    }
+
+    @PostMapping("/user-settings/delete/{id}")
+    public String deleteUserInSettings(@PathVariable long id, Principal principal, HttpServletRequest request) throws ServletException {
+        
+        // 1. Security Check: Verify user identity
+        User currentUser = userRepository.findByName(principal.getName()).orElseThrow();
+        if (currentUser.getUserId() != id) {
+            return "redirect:/error?msg=unauthorized";
+        }
+
+        // 2. Delegate to Service 
+        userService.deleteUser(id);
+
+        // 3. Manualy logout
+        request.logout();
+
+        // 4. Redirect back to index
+        return "redirect:/";
     }
 
 }

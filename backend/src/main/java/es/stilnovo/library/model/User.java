@@ -1,8 +1,10 @@
 package es.stilnovo.library.model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -11,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
 
 @Entity(name = "UserTable")
 public class User {
@@ -18,10 +21,6 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
-
-	public Long getUserId() {
-        return userId;
-    }
 
 	private String name;
 	private String userDescription;
@@ -46,6 +45,10 @@ public class User {
 	
 	@Column(unique = true, nullable = false) 
 	private String email;
+
+	// Synchronizes P2P data: propagates deletions to products and removes orphaned entries
+	@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Product> products = new ArrayList<>();
 
 	public User() {
 	}
@@ -185,4 +188,7 @@ public class User {
 	}
 
 
+	public Long getUserId() {
+        return userId;
+    }
 }

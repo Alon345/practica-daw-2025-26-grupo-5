@@ -10,7 +10,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    
+    <style>
+        .btn-danger-custom {
+            background: #fff5f5;
+            color: #ff4d4d;
+            border: 2px solid #ff4d4d;
+            border-radius: 50px;
+            font-weight: 800;
+            transition: all 0.3s ease;
+        }
+        .btn-danger-custom:hover {
+            background: #ff4d4d;
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.2);
+            transform: translateY(-2px);
+        }
+        .modal-delete-danger {
+            background: #ff4d4d !important;
+            border: none !important;
+        }
+    </style>
 </head>
 <body class="bg-light">
 
@@ -111,6 +130,14 @@
     
                             <button type="submit" class="btn-sell w-100 justify-content-center mb-5">Save All Changes</button>
                         </form>
+
+                        <hr class="my-5 opacity-10">
+                        
+                        <div class="text-center">
+                            <button type="button" class="btn btn-danger-custom w-100 py-3 small shadow-sm" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+                                <i class="fa-solid fa-user-slash me-2"></i>Permanently Delete Account
+                            </button>
+                        </div>
                     </div>
                 </div>
     
@@ -174,6 +201,43 @@
             </div>
         </div>
     </main>
+
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="clay-card modal-content p-4 border-0 shadow-lg">
+                <div class="text-center mb-4">
+                    <div class="bg-danger bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                        <i class="fa-solid fa-triangle-exclamation text-danger fa-2x"></i>
+                    </div>
+                    <h3 class="fw-800 h5 mb-2 text-danger">Confirm Account Deletion</h3>
+                    <p class="small text-muted">Hi {{user.name}}, are you sure you want to leave us? This action will permanently remove all your products and history.</p>
+                </div>
+                
+                <form action="/user-settings/delete/{{user.userId}}" method="post">
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    
+                    <div class="mb-4">
+                        <div class="p-3 bg-light rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="fa-solid fa-check-circle text-success small"></i>
+                                <span class="x-small fw-700 text-uppercase">Cascading Deletion Active</span>
+                            </div>
+                            <p class="x-small text-muted mb-0">All linked items in your collection will be automatically removed from the marketplace.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-2">
+                        <button type="submit" class="modal-delete-danger btn-sell w-100 py-3 border-0 text-white shadow-sm">
+                            Confirm and Delete
+                        </button>
+                        <button type="button" class="btn btn-link text-muted fw-700 text-decoration-none small mt-2" data-bs-dismiss="modal">
+                            Cancel, I want to stay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
