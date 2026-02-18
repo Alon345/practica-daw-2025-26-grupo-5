@@ -8,53 +8,78 @@ import org.springframework.stereotype.Service;
 
 import es.stilnovo.library.model.Product;
 import es.stilnovo.library.model.User;
+import es.stilnovo.library.model.UserInteraction;
 import es.stilnovo.library.repository.ProductRepository;
+import es.stilnovo.library.repository.UserInteractionRepository;
 
 @Service
 public class ProductService {
 
     @Autowired
-    private ProductRepository repository;
+    private ProductRepository productRepository;
 
-    public Optional<Product> findById(long id) {
-        return repository.findById(id);
-    }
-    
-    public boolean exist(long id) {
-        return repository.existsById(id);
-    }
+    @Autowired
+    private UserInteractionRepository userInteractionRepository;
 
     public List<Product> findAll() {
-        return repository.findAll();
+        return productRepository.findAll();
     }
 
-    public void save(Product product) {
-        repository.save(product);
+    // --- FIX CRITICO: Ritorna Optional per non rompere gli altri Controller ---
+    public Optional<Product> findById(long id) {
+        return productRepository.findById(id);
+    }
+    // ------------------------------------------------------------------------
+
+    public Product save(Product product) {
+        return productRepository.save(product);
     }
 
-    public void delete(long id) {
-        repository.deleteById(id);
+    public void deleteById(long id) {
+        productRepository.deleteById(id);
     }
 
-    public long getProductCount(User seller) {
-        // Returns the total count of items for sale from this specific curator
-        return repository.countBySeller(seller);
-    }
-
-    // Logic to either return all products or filter them by name
+    // Search methods
     public List<Product> findByQuery(String query) {
         if (query == null || query.isEmpty()) {
-            return repository.findAll();
+            return productRepository.findAll();
         }
-        // Make sure this method exists in your ProductRepository!
-        return repository.findByNameContainingIgnoreCase(query);
+        return productRepository.findByNameContainingIgnoreCase(query);
     }
 
-    public List<Product> findByQueryCategory(String query) {
-        if (query == null || query.isEmpty()) {
-            return repository.findAll();
+    public List<Product> findByQueryCategory(String category) {
+        return productRepository.findByCategoryContainingIgnoreCase(category);
+    }
+
+    public List<Product> findBySeller(User seller) {
+        return productRepository.findBySeller(seller);
+    }
+
+    // --- FIX: Aggiunto metodo mancante per UserWebController ---
+    public long getProductCount(User seller) {
+        return productRepository.countBySeller(seller);
+    }
+    // ----------------------------------------------------------
+
+    // ALGORITHM METHODS
+    public List<Product> getRecommendations(User user) {
+        if (user == null) {
+            return productRepository.findTop8ByOrderByIdDesc();
         }
-        // Make sure this method exists in your ProductRepository!
-        return repository.findByCategoryContainingIgnoreCase(query);
+
+        List<Product> recommendations = productRepository.findRecommendedProducts(user.getUserId());
+
+        if (recommendations.isEmpty()) {
+            return productRepository.findTop8ByOrderByIdDesc();
+        }
+
+        return recommendations;
+    }
+
+    public void saveInteraction(User user, Product product, UserInteraction.InteractionType type) {
+        if (user != null && product != null) {
+            UserInteraction interaction = new UserInteraction(user, product, type);
+            userInteractionRepository.save(interaction);
+        }
     }
 }

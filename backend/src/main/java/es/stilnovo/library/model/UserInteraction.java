@@ -38,7 +38,7 @@ public class UserInteraction {
     public Product getProduct() { return product; }
     public InteractionType getType() { return type; }
     
-    // Enum interno
+    // Enum for interaction types
     public enum InteractionType {
         VIEW, LIKE, BUY
     }
