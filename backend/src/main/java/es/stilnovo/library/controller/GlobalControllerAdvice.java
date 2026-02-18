@@ -1,7 +1,7 @@
 package es.stilnovo.library.controller;
 
-import es.stilnovo.library.model.User; // Ajusta a tu paquete
-import es.stilnovo.library.repository.UserRepository; // Ajusta a tu paquete
+import es.stilnovo.library.model.User;
+import es.stilnovo.library.repository.UserRepository; 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;

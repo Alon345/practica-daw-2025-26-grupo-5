@@ -39,7 +39,9 @@ public class NotificationController {
     @Autowired
     private ResourceLoader resourceLoader; // To load the logo from classpath
 
-    @PostMapping("/api/v1/notifications/send-inquiry")
+    //  MAL--> /api/v1/notifications/send-inquiry
+    //  BIEN --> /notifications/send-inquiry
+    @PostMapping("/notifications/send-inquiry")
     public String sendInquiry(@RequestParam long productId,
                                 @RequestParam(required = false) String phone,
                                 @RequestParam String type,

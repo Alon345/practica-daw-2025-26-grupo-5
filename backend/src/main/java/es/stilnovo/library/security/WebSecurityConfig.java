@@ -65,6 +65,7 @@ public class WebSecurityConfig {
 				.requestMatchers("/help-center-page/**").hasAnyRole("USER", "ADMIN")
                 .requestMatchers("/pdf/**").hasAnyRole("USER", "ADMIN")
                 .requestMatchers("/api/v1/notifications/**").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/admin/admin-panel-page/**").hasAnyRole("ADMIN")
 				.requestMatchers("/admin/**").hasRole("ADMIN") //fix admin access
 
 				

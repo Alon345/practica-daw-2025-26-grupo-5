@@ -26,6 +26,7 @@
                 <a class="nav-link-stilnovo" href="/user-products-page/{{userId}}"><i class="fa-solid fa-box-open"></i> My Products</a>
                 <!--<a class="nav-link-stilnovo" href="/favorite-products-page/{{userId}}"><i class="fa-solid fa-heart"></i> Favorites</a>-->
                 <a class="nav-link-stilnovo" href="/sales-and-orders-page/{{userId}}"><i class="fa-solid fa-handshake"></i> Sales & Orders</a>
+                <a class="nav-link-stilnovo" href="/user-valorations-page/{{userId}}"><i class="fa-solid fa-star"></i> My Valorations</a>
                 <a class="nav-link-stilnovo active" href="#"><i class="fa-solid fa-magnifying-glass-chart"></i> Statistics</a>
                 <a class="nav-link-stilnovo" href="/user-setting-page/{{userId}}"><i class="fa-solid fa-user-gear"></i> Settings</a>
                 <a class="nav-link-stilnovo text-muted" href="/help-center-page/{{userId}}"><i class="fa-solid fa-circle-question"></i> Help Center</a>
@@ -36,9 +37,12 @@
                     <i class="fa-solid fa-shop"></i> Browse Market
                 </a>
 
-                <a href="/" class="nav-link-stilnovo logout-link">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
-                </a>
+                <form action="/logout" method="post" class="m-0">
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" class="nav-link-stilnovo logout-link border-0 bg-transparent w-100 text-start">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                    </button>
+                </form>
             </div>
         </aside>
 

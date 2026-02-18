@@ -23,10 +23,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import es.stilnovo.library.model.Image;
 import es.stilnovo.library.model.Product;
+import es.stilnovo.library.model.Transaction;
 import es.stilnovo.library.model.User;
+import es.stilnovo.library.model.Valoration;
 import es.stilnovo.library.repository.ProductRepository;
+import es.stilnovo.library.repository.TransactionRepository;
 import es.stilnovo.library.repository.UserRepository;
+import es.stilnovo.library.repository.ValorationRepository;
 import es.stilnovo.library.service.ProductService;
+import es.stilnovo.library.service.UserService;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -40,6 +46,16 @@ public class UserWebController {
     
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private TransactionRepository transactionRepository;
+
+    @Autowired
+    private ValorationRepository valorationRepository;
+
+    @Autowired
+    private UserService userService;
+
     /**
      * Endpoint to retrieve a specific user's profile photo from the database.
      * It fetches the Blob content and returns it as a streaming image resource.
@@ -68,6 +84,9 @@ public class UserWebController {
     public String showSellerProfile(Model model, @PathVariable long id) {
         // 1. Find the seller by ID. If not found, Spring will show the error page we created.
         User seller = userRepository.findById(id).orElseThrow();
+        
+        List<Valoration> valorationList = valorationRepository.findBySeller(seller);
+        model.addAttribute("sellerValorations", valorationList); 
     
         // 2. Add the seller object to the model
         model.addAttribute("seller", seller);
@@ -76,7 +95,7 @@ public class UserWebController {
         List<Product> sellerProducts = productRepository.findBySeller(seller);
         model.addAttribute("sellerProducts", sellerProducts);
     
-        // 4. Logic for stars (optional: you could pass a list of booleans for the star icons)
+        // 4. Logic for stars 
         model.addAttribute("fullStars", Math.floor(seller.getRating()));
         
         // 5. Num of products
@@ -90,13 +109,13 @@ public class UserWebController {
     @GetMapping("/user-page/{id}")
     public String showUserPage(Model model, @PathVariable long id, HttpServletRequest request) {
     
-        // 1. Buscamos al usuario por su ID
+        // 1. Search user by ID
         User user = userRepository.findById(id).orElseThrow();
     
-        // 2. Pasamos los datos del usuario a la plantilla user-page.html
+        // 2. Give all the user object to the model
         model.addAttribute("user", user);
     
-        // 3. Comprobamos si el que mira la página es el dueño del perfil
+        // 3. Check if current user is owner 
         Principal principal = request.getUserPrincipal();
         if (principal != null && principal.getName().equals(user.getName())) {
         model.addAttribute("isOwner", true);
@@ -132,75 +151,54 @@ public class UserWebController {
         return "user-products-page";
     }
 
-    @GetMapping("/favorite-products-page/{id}")
-    public String showFavoriteProductsPage(Model model, @PathVariable long id, HttpServletRequest request) {
-
-        User user = userRepository.findById(id).orElseThrow();
-
-        if (request.getUserPrincipal() == null || !request.getUserPrincipal().getName().equals(user.getName())) {
-            return "redirect:/error";
-        }
-
-        model.addAttribute("user", user);
-
-        return "favorite-products-page";
-    }
-
     @GetMapping("/sales-and-orders-page/{id}")
     public String showSalesAndOrdersPage(Model model, @PathVariable long id,
                                          @RequestParam(required = false) Long productId,
                                          HttpServletRequest request) {
 
+        // 1. Context and Security
         User user = userRepository.findById(id).orElseThrow();
-
         if (request.getUserPrincipal() == null || !request.getUserPrincipal().getName().equals(user.getName())) {
             return "redirect:/error";
         }
 
-        List<Product> userProducts = productRepository.findBySeller(user);
-        List<Product> soldProducts = userProducts.stream()
-            .filter(product -> product.getStatus() != null
-                && product.getStatus().equalsIgnoreCase("sold"))
-            .toList();
+        // 2. Fetch Data using the new Power: Transactions
+        List<Transaction> sales = transactionRepository.findBySellerUserId(user.getUserId());
+        List<Transaction> orders = transactionRepository.findByBuyerUserId(user.getUserId());
 
-        Product selectedProduct = null;
+        // Add a check for each order
+        for(Transaction t: orders){
+            // Check if a valoration already exists for this transaction
+            t.setRated(valorationRepository.existsByTransactionTransactionId(t.getTransactionId()));        
+        }
+
+        // 3. Logic for the "Detail View" (Selected Sale)
+        Transaction selectedSale = null;
         if (productId != null) {
-            selectedProduct = soldProducts.stream()
-                .filter(product -> product.getId() != null && product.getId().equals(productId))
+            selectedSale = sales.stream()
+                .filter(t -> t.getProduct().getId().equals(productId))
                 .findFirst()
                 .orElse(null);
         }
-        if (selectedProduct == null && !soldProducts.isEmpty()) {
-            selectedProduct = soldProducts.get(0);
+        
+        // Default: Show the most recent sale if none is clicked
+        if (selectedSale == null && !sales.isEmpty()) {
+            selectedSale = sales.get(0);
         }
 
-        String selectedProductAddress = "Address not provided";
-        if (selectedProduct != null && selectedProduct.getLocation() != null
-                && !selectedProduct.getLocation().isBlank()) {
-            selectedProductAddress = selectedProduct.getLocation();
-        }
+        // 4. FIXING THE 500 ERROR: Always provide a default for Mustache
+        String address = (selectedSale != null) ? selectedSale.getProduct().getLocation() : "No shipping data available";
 
+        // 5. Populate Model
         model.addAttribute("user", user);
-        model.addAttribute("soldProducts", soldProducts);
-        model.addAttribute("selectedProduct", selectedProduct);
-        model.addAttribute("selectedProductAddress", selectedProductAddress);
-        model.addAttribute("hasSales", !soldProducts.isEmpty());
+        model.addAttribute("sales", sales);
+        model.addAttribute("orders", orders); // you can see what you bought!
+        model.addAttribute("selectedTransaction", selectedSale);
+        model.addAttribute("selectedProductAddress", address);
+        model.addAttribute("hasSales", !sales.isEmpty());
+        model.addAttribute("hasOrders", !orders.isEmpty());
 
         return "sales-and-orders-page";
-    }
-
-    @GetMapping("/statistics-page/{id}")
-    public String showStatisticsPage(Model model, @PathVariable long id, HttpServletRequest request) {
-
-        User user = userRepository.findById(id).orElseThrow();
-
-        if (request.getUserPrincipal() == null || !request.getUserPrincipal().getName().equals(user.getName())) {
-            return "redirect:/error";
-        }
-
-        model.addAttribute("user", user);
-
-        return "statistics-page";
     }
 
 
@@ -228,7 +226,7 @@ public class UserWebController {
 
         // 2. SECURITY CHECK: Ensure the logged-in user is the owner (the seller)
         if (request.getUserPrincipal() == null || !request.getUserPrincipal().getName().equals(product.getSeller().getName())) {
-            return "redirect:/error-403";
+            return "redirect:/error";
         }
 
         // 3. Add the product to the model so the form fields can be pre-filled
@@ -329,6 +327,7 @@ public class UserWebController {
     }
 
     // Method to delete a product from the database
+    //Esto va en service, en logica de negocio, esto y todo las funciones
     @PostMapping("/delete-product/{id}")
     public String deleteProduct(@PathVariable long id, HttpServletRequest request) {
     
@@ -396,8 +395,50 @@ public class UserWebController {
         //we add all the user object 
         model.addAttribute("user", loggedInUser);
 
-        return "/user-setting-page";
+        return "user-setting-page";
 
     }
-    
+
+    @PostMapping("/user-settings/edit/{id}")
+    public String updateSettings(@PathVariable long id, 
+                                @RequestParam(required = false) MultipartFile newProfilePhoto,
+                                @RequestParam(required = false) String newEmail,
+                                @RequestParam(required = false) String newCardNumber,
+                                @RequestParam(required = false) String newCardCvv,
+                                @RequestParam(required = false) String newCardExpiringDate, 
+                                @RequestParam(required = false) String newDescription,
+                                Principal principal) throws IOException {
+        
+        // 1. Security Check: Verify user identity
+        User currentUser = userRepository.findByName(principal.getName()).orElseThrow();
+        if (currentUser.getUserId() != id) {
+            return "redirect:/error?msg=unauthorized";
+        }
+
+        // 2. Delegate to Service 
+        userService.updateUserSettings(id, newProfilePhoto, newEmail, newCardNumber, newCardCvv, newCardExpiringDate, newDescription);
+
+        // 3. Redirect back with success flag
+        return "redirect:/user-setting-page/" + id + "?updated=true";
+    }
+
+    @PostMapping("/user-settings/delete/{id}")
+    public String deleteUserInSettings(@PathVariable long id, Principal principal, HttpServletRequest request) throws ServletException {
+        
+        // 1. Security Check: Verify user identity
+        User currentUser = userRepository.findByName(principal.getName()).orElseThrow();
+        if (currentUser.getUserId() != id) {
+            return "redirect:/error?msg=unauthorized";
+        }
+
+        // 2. Delegate to Service 
+        userService.deleteUser(id);
+
+        // 3. Manualy logout
+        request.logout();
+
+        // 4. Redirect back to index
+        return "redirect:/";
+    }
+
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import es.stilnovo.library.model.User;
 import es.stilnovo.library.repository.UserRepository;
 
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -51,5 +52,15 @@ public class AdminController {
 
     return "redirect:/admin/users";
 }
+
+    @GetMapping("/{id}")
+    public String showAdministrationpage(Model model, @PathVariable Long id) {
+        User user = userRepository.findById(id).orElseThrow();
+
+        model.addAttribute("user", user);
+    
+        return "admin-panel-page";
+    }
+    
 
 }

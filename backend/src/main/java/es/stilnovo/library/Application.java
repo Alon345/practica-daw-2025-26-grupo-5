@@ -1,6 +1,5 @@
 package es.stilnovo.library;
 
-// Es el main de la aplicación, el punto de entrada.  
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

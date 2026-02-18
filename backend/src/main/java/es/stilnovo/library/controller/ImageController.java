@@ -19,7 +19,7 @@ public class ImageController {
     @Autowired
     private ImageService imageService;
 
-    // We change the path to /product-images/{id} to avoid conflicts with static /images/
+    //We change the path to /product-images/{id} to avoid conflicts with static /images/
     @GetMapping("/product-images/{id}")
     public ResponseEntity<Object> getImageFile(@PathVariable long id) throws SQLException {
 

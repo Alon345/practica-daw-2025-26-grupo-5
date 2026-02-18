@@ -1352,7 +1352,6 @@ main.overflow-auto {
             box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
         }
 
-        /* Tipografía de Datos */
         .trx-id {
             font-family: 'Courier New', monospace;
             font-weight: 700;
@@ -1405,14 +1404,12 @@ main.overflow-auto {
             align-items: center; justify-content: center; font-weight: 800;
         }
 
-        /* Estilos para las tarjetas de pedido */
 .order-item-link .clay-card {
-    border: 2px solid transparent !important; /* Quitamos el borde fijo inicial */
+    border: 2px solid transparent !important; 
     transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 
-/* Efecto Hover: se oscurece un poco y se eleva */
 .order-item-link:hover .clay-card {
     background-color: #f1f5fe !important; 
     transform: translateY(-3px);
@@ -1420,9 +1417,66 @@ main.overflow-auto {
     border-color: rgba(47, 108, 237, 0.3) !important;
 }
 
-/* Clase para la selección persistente (vía JS rápido) */
 .selected-order .clay-card {
     border: 2px solid var(--brand-blue) !important;
     background-color: #f8fbff !important;
     box-shadow: inset 0 0 0 1px rgba(47, 108, 237, 0.1) !important;
+}
+
+.search-box.disabled-look {
+    background-color: #f8f9fa;
+    opacity: 0.8;
+    border: 1px dashed #dee2e6;
+}
+.search-box.disabled-look input {
+    cursor: not-allowed;
+    color: #6c757d;
+}
+/* --- Core Layout & Functionality --- */
+.cvv-wrapper { position: relative; display: flex; align-items: center; }
+.toggle-password { cursor: pointer; padding: 0 10px; color: #6c757d; }
+
+/* Fixed Column Behavior */
+.sticky-card-column {
+    position: sticky;
+    top: 100px; /* Offset from header */
+    align-self: start;
+    padding-top: 1rem;
+    z-index: 10;
+}
+
+/* --- UI Harmony --- */
+/* Textarea: Rectangular and harmonic, NOT a cloud */
+.description-box { 
+    border-radius: 12px !important; 
+    resize: none; 
+    padding: 15px !important; 
+    min-height: 130px;
+}
+
+/* Frozen/Locked Field Style */
+.locked-field {
+    background-color: #f2f2f2 !important; 
+    border: 1px solid #ddd !important;
+    cursor: not-allowed;
+    box-shadow: none !important;
+}
+.locked-field input {
+    cursor: not-allowed;
+    color: #999 !important;
+    font-weight: 600;
+}
+
+/* --- Blue-Edge Info Boxes (As requested) --- */
+.tip-card-blue {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-left: 5px solid var(--brand-blue) !important; /* The blue edge */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform 0.2s ease;
+}
+.tip-card-blue:hover {
+    transform: translateX(5px);
 }

@@ -4,19 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Payment</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    
+    <style>
+        /* CSS necesario para la nota informativa y ajustes de la tarjeta */
+        .magic-tip-box {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-left: 5px solid var(--brand-blue) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        
+        /* Asegurar que el texto de la tarjeta no se rompa si es muy largo */
+        .visual-card .h5 { letter-spacing: 2px; }
+        .text-truncate-card { max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    </style>
 </head>
 <body class="bg-light">
 
     <header class="navbar container-fluid px-4 py-3 border-bottom bg-white sticky-top position-relative justify-content-center">
-        <a href="info-product-page" class="text-decoration-none text-muted small fw-700 position-absolute start-0 ms-4">
-            <i class="fa-solid fa-chevron-left me-1"></i> Back
+        {{#product}}
+        <a href="/info-product-page/{{id}}" class="text-decoration-none text-muted small fw-700 position-absolute start-0 ms-4">
+            <i class="fa-solid fa-chevron-left me-1"></i> Back to Product
         </a>
-        <img src="images/logo.png" alt="Stilnovo" class="logo-img" style="height: 40px;">
+        {{/product}}
+        <img src="/images/logo.png" alt="Stilnovo" class="logo-img" style="height: 40px;">
     </header>
 
     <main class="container-fluid main-wrapper d-flex align-items-center py-5">
@@ -26,25 +45,26 @@
                     <div class="glass-card p-4 p-md-5 shadow-2xl">
                         <div class="row align-items-center">
                             
+                            {{#product}}
                             <div class="col-lg-5 text-center border-end pe-lg-5">
                                 <div class="position-relative mb-4">
-                                    <img src="images/coche.png" alt="Audi" class="img-fluid rounded-4" style="max-height: 200px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));">
+                                    <img src="/product-images/{{id}}" alt="{{name}}" class="img-fluid rounded-4 shadow-sm" style="max-height: 220px; width: 100%; object-fit: contain;">
                                 </div>
-                                <h2 class="fw-800 h3 mb-1">Audi A3 Sportback</h2>
-                                <p class="text-muted small fw-700 mb-4">Móstoles, Madrid • Verified Seller</p>
-                                
+                                <h2 class="fw-800 h3 mb-1">{{name}}</h2>
+                                <p class="text-muted small fw-700 mb-4">{{location}} • Verified Seller</p>
+
                                 <div class="alert-oversized p-3 rounded-4 bg-white border d-flex align-items-center gap-3 mb-4 mx-auto text-start" style="max-width: 350px;">
                                     <i class="fa-solid fa-truck-fast text-primary fs-3"></i>
                                     <div>
-                                        <p class="x-small fw-800 mb-0">SPECIAL DIMENSIONS</p>
-                                        <p class="x-small opacity-50 mb-0">Local pickup arranged.</p>
+                                        <p class="x-small fw-800 mb-0">SECURE SHIPPING</p>
+                                        <p class="x-small opacity-50 mb-0">Door-to-door delivery active.</p>
                                     </div>
                                 </div>
 
                                 <div class="d-flex justify-content-center gap-4 align-items-center">
                                     <div class="text-center">
                                         <p class="x-small fw-800 text-muted mb-0">PRICE</p>
-                                        <p class="fw-800 h4 mb-0">45.200 €</p>
+                                        <p class="fw-800 h4 mb-0">{{price}} €</p>
                                     </div>
                                     <div class="vr opacity-10" style="height: 30px;"></div>
                                     <div class="text-center">
@@ -55,55 +75,85 @@
                             </div>
 
                             <div class="col-lg-7 ps-lg-5 mt-5 mt-lg-0">
-                                <div class="visual-card d-none d-md-block mb-5">
+                                {{#user}}
+                                <div class="visual-card d-none d-md-block mb-4">
                                     <div class="chip"></div>
                                     <p class="mb-0 fw-600 opacity-75 x-small">CARD NUMBER</p>
-                                    <p class="h5 fw-700 mb-3" style="letter-spacing: 2px;">**** **** **** 8821</p>
+                                    <p class="h5 fw-700 mb-3">
+                                        {{#cardNumber}}{{cardNumber}}{{/cardNumber}}
+                                        {{^cardNumber}}0000 0000 0000 0000{{/cardNumber}}
+                                    </p>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <p class="mb-0 opacity-50 x-small">HOLDER</p>
-                                            <p class="small fw-700 mb-0 text-uppercase text-truncate" style="max-width: 180px;">Alex Morgan</p>
+                                            <p class="small fw-700 mb-0 text-uppercase text-truncate-card">{{name}}</p>
                                         </div>
                                         <div>
                                             <p class="mb-0 opacity-50 x-small">EXPIRES</p>
-                                            <p class="small fw-700 mb-0">12/28</p>
+                                            <p class="small fw-700 mb-0">
+                                                {{#cardExpiringDate}}{{cardExpiringDate}}{{/cardExpiringDate}}
+                                                {{^cardExpiringDate}}00/00{{/cardExpiringDate}}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0 opacity-50 x-small">CVV</p>
+                                            <p class="small fw-700 mb-0">
+                                                {{#cardCvv}}{{cardCvv}}{{/cardCvv}}
+                                                {{^cardCvv}}000{{/cardCvv}}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <form class="row g-3">
+                                {{^cardExpiringDate}}
+                                <div class="magic-tip-box mb-4 d-flex align-items-center gap-3">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-primary fs-4"></i>
+                                    <div>
+                                        <p class="small fw-800 mb-0 text-dark">Want to buy faster?</p>
+                                        <p class="x-small mb-0 opacity-75">Save your payment info in <strong>Settings</strong> to go faster in this form next time.</p>
+                                    </div>
+                                </div>
+                                {{/cardExpiringDate}}
+                                {{/user}}
+
+                                <form action="/api/v1/transactions/confirm/{{id}}" method="post" class="row g-3">
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                    
                                     <div class="col-12">
                                         <div class="search-box py-2 w-100 rounded-pill px-3 bg-white border">
-                                            <input type="text" class="w-100 border-0 fw-600 bg-transparent" placeholder="Cardholder Name">
+                                            <input type="text" name="cardHolder" class="w-100 border-0 fw-600 bg-transparent" placeholder="Cardholder Name" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="search-box py-2 w-100 d-flex align-items-center px-3 rounded-pill bg-white border">
-                                            <input type="text" class="w-100 border-0 fw-600 bg-transparent" placeholder="Card Number">
+                                            <input type="text" name="cardNumber" class="w-100 border-0 fw-600 bg-transparent" placeholder="Card Number" required>
                                             <i class="fa-brands fa-cc-visa opacity-50 fa-lg"></i>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="search-box py-2 w-100 rounded-pill px-3 bg-white border">
-                                            <input type="text" class="w-100 border-0 fw-600 bg-transparent text-center" placeholder="MM/YY">
+                                            <input type="text" name="expiry" class="w-100 border-0 fw-600 bg-transparent text-center" placeholder="MM/YY" required>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="search-box py-2 w-100 rounded-pill px-3 bg-white border">
-                                            <input type="password" class="w-100 border-0 fw-600 bg-transparent text-center" placeholder="CVV">
+                                            <input type="password" name="cvv" class="w-100 border-0 fw-600 bg-transparent text-center" placeholder="CVV" required>
                                         </div>
                                     </div>
+
                                     <div class="col-12 mt-4">
-                                        <button type="submit" class="btn-sell w-100 py-3 shadow-lg rounded-pill border-0 fw-800 position-relative overflow-hidden">
+                                        <button type="submit" id="pay-btn" class="btn-sell w-100 py-3 shadow-lg rounded-pill border-0 fw-800 position-relative overflow-hidden">
                                             <i class="fa-solid fa-lock me-2"></i> Confirm Secure Payment
                                         </button>
                                     </div>
+
                                     <div class="col-12 text-center mt-3">
                                         <span class="security-pulse me-2"></span>
-                                        <span class="x-small fw-800 opacity-50">SECURE BANK CONNECTION ESTABLISHED</span>
+                                        <span class="x-small fw-800 opacity-50 text-uppercase">Secure Bank Connection Established</span>
                                     </div>
                                 </form>
                             </div>
+                            {{/product}}
 
                         </div>
                     </div>
@@ -113,6 +163,16 @@
     </main>
 
     {{>footer}}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Loading state on submit
+        document.querySelector('form').addEventListener('submit', function() {
+            const btn = document.getElementById('pay-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Processing Transaction...';
+        });
+    </script>
 
 </body>
 </html>

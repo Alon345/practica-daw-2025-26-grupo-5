@@ -38,16 +38,10 @@
                     <i class="fa-solid fa-shop"></i> Browse Market
                 </a>
 
-<<<<<<< Updated upstream
-                <a href="/" class="nav-link-stilnovo logout-link">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
-                </a>
-=======
                 <form action="/logout" method="post" class="m-0">
                     <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button type="submit" class="dropdown-item rounded-3 py-2 fw-700 small text-danger border-0 bg-transparent w-100 text-start">Log out</button>
                 </form>
->>>>>>> Stashed changes
             </div>
         </aside>
 
@@ -61,11 +55,7 @@
                 <div class="d-flex align-items-center gap-4">
                     <a href="/user-setting-page/{{userId}}" class="text-decoration-none d-flex align-items-center gap-3 ps-2">
                         <div class="position-relative">
-<<<<<<< Updated upstream
-                            <img src="/images/profile-photo.png" alt="User" class="rounded-circle border border-2 shadow-sm" width="48" height="48" style="object-fit: cover;">
-=======
                             <img src="/user/{{userId}}/profile-photo" alt="User" class="rounded-circle border border-2 shadow-sm" width="48" height="48" style="object-fit: cover;">
->>>>>>> Stashed changes
                             <span class="position-absolute bottom-0 end-0 badge border border-light rounded-circle bg-success p-1" style="width: 12px; height: 12px;"></span>
                         </div>
                     </a>
@@ -88,12 +78,6 @@
             
                             <a href="/info-product-page/{{id}}" class="text-decoration-none text-dark h-100 d-flex flex-column">
                                 <div class="img-container">
-<<<<<<< Updated upstream
-                                    <img src="/images/lampar.png" alt="Lamp">
-                                    <button class="favorite-btn active-fav" onclick="event.preventDefault();">
-                                        <span class="material-symbols-outlined">favorite</span>
-                                    </button>
-=======
                                     {{#images.0}}
                                         <img src="/product-images/{{id}}" alt="{{name}}" class="img-fluid">
                                     {{/images.0}}
@@ -102,7 +86,6 @@
                                             <i class="fa-solid fa-image opacity-25"></i>
                                         </div>
                                     {{/images.0}}
->>>>>>> Stashed changes
                                 </div>
                                 <div class="product-details p-3">
                                     <h3 class="fw-800 h6 mb-1">{{name}}</h3>
@@ -124,29 +107,8 @@
                             Go to Marketplace
                         </a>
                     </div>
-<<<<<<< Updated upstream
-
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <a href="info-product-page.html" class="text-decoration-none text-dark">
-                            <div class="clay-card">
-                                <div class="img-container">
-                                    <img src="/images/coche.png" alt="Audi A3">
-                                    <button class="favorite-btn active-fav" onclick="event.preventDefault();">
-                                        <span class="material-symbols-outlined">favorite</span>
-                                    </button>
-                                </div>
-                                <div class="product-details">
-                                    <h3>Audi A3</h3>
-                                    <p class="price">42,500€</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-=======
                     {{/favoriteProducts}}
             
->>>>>>> Stashed changes
                 </div>
             </section>
 

@@ -81,7 +81,7 @@ public class SignupWebController {
         
         // 3. We create the user with default values (rating 5.0, 0 reviews)
         // We add ROLE_USER so they can log in later
-        User newUser = new User(username, encodedPassword, email, imageBlob, 5.0, "ROLE_USER");
+        User newUser = new User(username, encodedPassword, email, imageBlob, 5.0, null, null, null , 0, 0.0, 0.0, null, "ROLE_USER");
 
         // 4. Save to Docker database
         userRepository.save(newUser);

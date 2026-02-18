@@ -68,9 +68,9 @@
                     
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <h1 class="fw-800 h3 mb-0 lh-sm">{{name}}</h1>
-                        <button class="btn btn-icon-circle bg-light-subtle text-danger shadow-sm border-0" style="width: 45px; height: 45px; border-radius: 50%;">
+                        <!--<button class="btn btn-icon-circle bg-light-subtle text-danger shadow-sm border-0" style="width: 45px; height: 45px; border-radius: 50%;">
                             <i class="fa-regular fa-heart fa-lg"></i>
-                        </button>
+                        </button>-->
                     </div>
 
                     <div class="mb-4">
@@ -84,7 +84,7 @@
                     </div>
 
                     <div class="d-grid gap-3 mb-5">
-                        <a href="/payment-page" class="btn-sell py-3 fw-800 shadow-lg rounded-pill d-flex align-items-center justify-content-center gap-2 border-0 text-decoration-none" style="font-size: 1.1rem;">
+                        <a href="/payment-page/{{id}}" class="btn-sell py-3 fw-800 shadow-lg rounded-pill d-flex align-items-center justify-content-center gap-2 border-0 text-decoration-none" style="font-size: 1.1rem;">
                             <i class="fa-solid fa-bag-shopping"></i> Buy Now
                         </a>
                         <a href="/contact-seller-page/{{id}}" class="btn btn-outline-primary py-3 fw-800 rounded-pill border-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none">
@@ -108,7 +108,7 @@
                     <div>
                         <p class="fw-800 mb-0 text-dark">{{name}}</p>
                         <div class="d-flex align-items-center gap-1 small fw-700 text-muted">
-                            <i class="fa-solid fa-star text-warning"></i> {{rating}} (82 ratings)
+                            <i class="fa-solid fa-star text-warning"></i> {{rating}} ({{numRatings}} ratings)
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,8 @@
             </div>
             
             <div class="row g-4">
-                {{#relatedProducts}} <div class="col-6 col-md-3">
+                {{#relatedProducts}} 
+                <div class="col-6 col-md-3">
                     <a href="/info-product-page/{{id}}" class="text-decoration-none text-dark">
                         <div class="clay-card p-2 h-100 shadow-sm border-0">
                             <div class="rounded-3 overflow-hidden mb-3" style="height: 180px; background: #f8fafc;">

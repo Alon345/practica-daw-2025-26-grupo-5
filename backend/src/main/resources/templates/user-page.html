@@ -27,6 +27,7 @@
                 <a class="nav-link-stilnovo" href="/user-products-page/{{userId}}"><i class="fa-solid fa-box-open"></i> My Products</a>
                 <!--<a class="nav-link-stilnovo" href="/favorite-products-page/{{userId}}"><i class="fa-solid fa-heart"></i> Favorites</a>-->
                 <a class="nav-link-stilnovo" href="/sales-and-orders-page/{{userId}}"><i class="fa-solid fa-handshake"></i> Sales & Orders</a>
+                <a class="nav-link-stilnovo" href="/user-valorations-page/{{userId}}"><i class="fa-solid fa-star"></i> My Valorations</a>
                 <a class="nav-link-stilnovo" href="/statistics-page/{{userId}}"><i class="fa-solid fa-magnifying-glass-chart"></i> Statistics</a>
                 <a class="nav-link-stilnovo" href="/user-setting-page/{{userId}}"><i class="fa-solid fa-user-gear"></i> Settings</a>
                 <a class="nav-link-stilnovo text-muted" href="/help-center-page/{{userId}}"><i class="fa-solid fa-circle-question"></i> Help Center</a>
@@ -73,22 +74,24 @@
                 </div>
             </header>
 
+            {{#user}}
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="clay-card p-4">
                         <p class="label-categories mb-1 text-uppercase">Total Revenue</p>
-                        <h2 class="fw-800" style="color: var(--brand-blue)">124.500 €</h2>
-                        <span class="text-success fw-700 small">+12% vs last month</span>
+                        <h2 class="fw-800" style="color: var(--brand-blue)">{{totalRevenue}} €</h2>
+                        <span class="text-success fw-700 small">Keep going!</span> <!--+12% vs last month-->
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="clay-card p-4">
                         <p class="label-categories mb-1 text-uppercase">Current Balance</p>
-                        <h2 class="fw-800" style="color: var(--navy-dark)">8.240 €</h2>
-                        <span class="text-primary fw-700 small">+5% vs last month</span>
+                        <h2 class="fw-800" style="color: var(--navy-dark)">{{balance}} €</h2>
+                        <span class="text-primary fw-700 small">Wow!</span> <!--+5% vs last month-->
                     </div>
                 </div>
             </div>
+            {{/user}}
 
             <div class="row g-4 mb-4">
                 <div class="col-lg-7">
@@ -103,9 +106,9 @@
                                     </linearGradient>
                                 </defs>
                                 <path d="M0,120 C80,140 150,60 250,80 C350,100 420,40 500,20 L500,150 L0,150 Z" 
-                                      fill="url(#gradientBlue)" />
+                                        fill="url(#gradientBlue)" />
                                 <path d="M0,120 C80,140 150,60 250,80 C350,100 420,40 500,20" 
-                                      fill="none" stroke="#2f6ced" stroke-width="4" stroke-linecap="round"/>
+                                        fill="none" stroke="#2f6ced" stroke-width="4" stroke-linecap="round"/>
                             </svg>
                             <div class="d-flex justify-content-between mt-3 text-muted x-small fw-700 px-2">
                                 <span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>NOV</span>

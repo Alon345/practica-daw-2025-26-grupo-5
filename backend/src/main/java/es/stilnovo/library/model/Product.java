@@ -20,6 +20,7 @@ public class Product {
     private String description;
 
     private String status; // active, inactive
+    
 
     /**
      * One-to-Many relationship with the Image entity.
@@ -45,7 +46,7 @@ public class Product {
     }
 
     //Transient is to not save the variable to the db
-    @Transient
+    /*@Transient
     private boolean favorite; // Temporary flag for the view
 
     public boolean isFavorite() {
@@ -54,7 +55,7 @@ public class Product {
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
-    }
+    }*/
     
     /**
      * Method to add an Image entity to the product's gallery.
