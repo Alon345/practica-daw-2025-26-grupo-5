@@ -1,6 +1,7 @@
 package es.stilnovo.library.controller;
 
-import java.util.Optional;
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,27 +9,44 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import es.stilnovo.library.model.Product;
+import es.stilnovo.library.model.User;
+import es.stilnovo.library.model.UserInteraction;
 import es.stilnovo.library.service.ProductService;
+import es.stilnovo.library.service.UserService;
 
-@Controller // Essential: Tells Spring this class handles web requests
+import jakarta.servlet.http.HttpServletRequest;
+
+@Controller
 public class InfoProductController {
 
-    @Autowired // Essential: Injects the service to access the database
+    @Autowired
     private ProductService productService;
 
-    @GetMapping("/info-product-page/{id}")
-    public String showProduct(Model model, @PathVariable Long id) {
-        Optional<Product> product = productService.findById(id);
+    @Autowired
+    private UserService userService;
 
-        if (product.isPresent()) {
-            Product p = product.get();
-            model.addAttribute("product", p);
+    @GetMapping("/info-product-page/{id}")
+    public String infoProduct(Model model, @PathVariable long id, HttpServletRequest request) {
         
-            model.addAttribute("seller", p.getSeller()); 
+        // FIX: Ora findById torna Optional, usiamo .orElse(null) per prendere il Product
+        Product product = productService.findById(id).orElse(null);
         
-            model.addAttribute("relatedProducts", productService.findAll());
-            return "info-product-page";
+        if (product == null) {
+             return "error"; 
         }
-        return "redirect:/";
+        
+        model.addAttribute("product", product);
+
+        Principal principal = request.getUserPrincipal();
+        if (principal != null) {
+            String username = principal.getName();
+            User currentUser = userService.findByName(username).orElse(null);
+            
+            if (currentUser != null) {
+                productService.saveInteraction(currentUser, product, UserInteraction.InteractionType.VIEW);
+            }
+        }
+
+        return "info-product-page";
     }
 }
