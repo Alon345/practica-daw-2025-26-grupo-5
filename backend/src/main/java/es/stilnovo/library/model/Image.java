@@ -2,11 +2,14 @@ package es.stilnovo.library.model;
 
 import java.sql.Blob;
 
+import com.fasterxml.jackson.annotation.JsonIgnore; 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 
 @Entity(name="ImageTable")
 public class Image {
@@ -17,6 +20,10 @@ public class Image {
 
     @Lob
     private Blob imageFile;
+
+    @ManyToOne
+    @JsonIgnore
+    private Product product;
 
     public Image() {
     }
@@ -41,6 +48,14 @@ public class Image {
         this.imageFile = imageFile;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+    
     @Override
     public String toString() {
         return "Image [id=" + id + "]";
