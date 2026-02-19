@@ -1,5 +1,7 @@
 package es.stilnovo.library.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity(name = "ProductTable")
@@ -21,6 +23,12 @@ public class Product {
     
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
+
+    /* To be implemented 
+    //1 Product = N Images
+    @OneToMany(cascade  = CascadeType.ALL)
+    private List<Image> images;*/
+
 
     @ManyToOne
     private User seller; // product owner
@@ -71,8 +79,11 @@ public class Product {
     public void setStatus(String status) { this.status = status; }
 
     public Image getImage() {return image;}
-
     public void setImage(Image image){this.image = image;}
+
+    /* To be implemented 
+    public List<Image> getImages() {return images;}
+    public void setImages(List<Image> images){this.images = images;} */
 
     public User getSeller() { return seller; }
     public void setSeller(User seller) { this.seller = seller; }

@@ -45,7 +45,10 @@ public class DataBaseInitializer {
         Image createdImage = imageService.createImage(imageRes.getInputStream());
     
         // Link the persistent Image entity to the product's internal list
+        //product -> image
         product.setImage(createdImage);
+        //image -> product
+        createdImage.setProduct(product);
     }   
 
     @PostConstruct
@@ -80,15 +83,52 @@ public class DataBaseInitializer {
         
         // 3. Associate specific images from /resources/sample-images/images/
         setProductImage(product1, "Audi-a3-1.png");
+        /*setProductImage(product1, "Audi-a3-2.png");
+        setProductImage(product1, "Audi-a3-3.png");
+        setProductImage(product1, "Audi-a3-4.png");*/
+
         setProductImage(product2, "Iphone-17-1.png");
+        /*setProductImage(product2, "Iphone-17-2.png");
+        setProductImage(product2, "Iphone-17-3.png");
+        setProductImage(product2, "Iphone-17-4.png");*/
+
+
         setProductImage(product3, "ordenador-dell-1.png");
+        /*setProductImage(product3, "ordenador-dell-2.png");
+        setProductImage(product3, "ordenador-dell-3.png");*/
+
         setProductImage(product4, "Abrigo-1.png");
+        /*setProductImage(product4, "Abrigo-2.png");
+        setProductImage(product4, "Abrigo-3.png");
+        setProductImage(product4, "Abrigo-4.png");*/
+
         setProductImage(product5, "Mesa-Blanca-1.png");
+        /*setProductImage(product5, "Mesa-Blanca-2.png");
+        setProductImage(product5, "Mesa-Blanca-3.png");
+        setProductImage(product5, "Mesa-Blanca-4.png");*/
+
         setProductImage(product6, "lampara-paja-1.png");
+        /*setProductImage(product6, "lampara-paja-2.png");*/
+
         setProductImage(product7, "lexus-1.png");
+        /*setProductImage(product7, "lexus-2.png");
+        setProductImage(product7, "lexus-3.png");
+        setProductImage(product7, "lexus-4.png");*/
+
+
         setProductImage(product8, "cafetera-1.png");
+        /*setProductImage(product8, "cafetera-2.png");*/
+
         setProductImage(product9, "bmw-1.png");
+        /*setProductImage(product9, "bmw-2.png");
+        setProductImage(product9, "bmw-3.png");
+        setProductImage(product9, "bmw-4.png");*/
+
+
         setProductImage(product10, "adidas-1.png");
+        /*setProductImage(product10, "adidas-2.png");
+        setProductImage(product10, "adidas-3.png");*/
+
 
         // 4. Persist all products into the MySQL database (Docker)
         productService.save(product1);
