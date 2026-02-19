@@ -12,9 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.stilnovo.library.model.Inquiry;
 import es.stilnovo.library.model.Product;
 import es.stilnovo.library.model.User;
-import es.stilnovo.library.model.Inquiry;
 import es.stilnovo.library.repository.InquiryRepository;
 import es.stilnovo.library.repository.UserRepository;
 import es.stilnovo.library.service.MailService;
@@ -39,8 +39,8 @@ public class NotificationController {
     @Autowired
     private ResourceLoader resourceLoader; // To load the logo from classpath
 
-    //  MAL--> /api/v1/notifications/send-inquiry
-    //  BIEN --> /notifications/send-inquiry
+    //  BAD--> /api/v1/notifications/send-inquiry
+    //  GOOD --> /notifications/send-inquiry
     @PostMapping("/notifications/send-inquiry")
     public String sendInquiry(@RequestParam long productId,
                                 @RequestParam(required = false) String phone,

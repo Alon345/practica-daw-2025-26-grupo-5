@@ -89,7 +89,7 @@ header.sticky-top {
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Scroll Arrow Animation - REBOTE ACTIVADO */
+/* Scroll Arrow Animation - BOUNCE ACTIVATED */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -116,21 +116,21 @@ header.sticky-top {
 html { scroll-behavior: smooth; }
 
 /* --- SUB-NAV and Styles--- */
-/* Altura completa de la pantalla menos el Header principal */
+/* Full screen height minus the main Header */
 .hero-wrapper {
-    min-height: calc(100vh - 85px); /* Ajusta 85px según la altura de tu navbar */
+    min-height: calc(100vh - 85px); /* Adjust 85px based on your navbar height */
     display: flex;
     flex-direction: column;
 }
 
-/* El Hero ahora es el "músculo" que se estira y centra todo */
+/* The Hero is now the "muscle" that stretches and centers everything */
 .hero {
-    flex: 1; /* Ocupa todo el espacio disponible */
+    flex: 1; /* Occupies all available space */
     display: flex;
-    align-items: center; /* Centra el Row verticalmente */
+    align-items: center; /* Centers the Row vertically */
 }
 
-/* Ajuste fino del texto para que no parezca que flota sin sentido */
+/* Fine-tuning text so it doesn't look like it's floating aimlessly */
 .hero-text-block h1 {
     margin-bottom: 20px;
     letter-spacing: -1px;
@@ -149,12 +149,12 @@ html { scroll-behavior: smooth; }
     font-size: 14px; 
     transition: color 0.3s ease; 
 }
-/* cursor efect */
+/* cursor effect */
 .category-list a:hover { 
     color: var(--brand-blue); 
 }
 
-/* --- BOTONES CLAY STYLE --- */
+/* --- CLAY STYLE BUTTONS --- */
 .hero-subtitle {
     color: var(--brand-blue); 
     font-weight: 700;        
@@ -216,7 +216,7 @@ html { scroll-behavior: smooth; }
 .product-details h3 { font-size: 17px; font-weight: 800; margin-bottom: 5px; }
 .product-details .price { color: var(--brand-blue); font-weight: 800; font-size: 19px; }
 
-/* Botón Cargar más (Estilo profesional) */
+/* Load More Button (Professional Style) */
 .btn-load-more {
     background: transparent; border: 2px solid var(--brand-blue);
     color: var(--brand-blue); padding: 12px 45px; border-radius: 50px;
@@ -235,7 +235,7 @@ html { scroll-behavior: smooth; }
 
 .footer-divider { border-top: 1px solid #e2e8f0; color: #cbd5e0; font-weight: 700; font-size: 12px; }
 
-/*ABOUT PAGE*/
+/* ABOUT PAGE */
 /* The single line to differentiate the header */
 .header-border-line {
     border-bottom: 1px solid #edf2f7 !important;
@@ -351,7 +351,7 @@ html { scroll-behavior: smooth; }
     color: var(--navy-dark);
 }
 
-/*USER PAGE*/
+/* USER PAGE */
 /* --- DASHBOARD NAVIGATION & LAYOUT --- */
 
 .sidebar-stilnovo {
@@ -434,11 +434,11 @@ html { scroll-behavior: smooth; }
     padding: 18px 0;
 }
 
-/*SETTING*/
+/* SETTING */
 /* --- PREMIUM LIZARD CARD STYLES --- */
 
 .flip-card-container {
-    width: 400px; /* Tamaño más grande para Settings */
+    width: 400px; /* Larger size for Settings */
     height: 250px;
     perspective: 1500px;
 }
@@ -483,7 +483,7 @@ html { scroll-behavior: smooth; }
     overflow: hidden;
 }
 
-/* Patrón sutil de fondo para textura */
+/* Subtle background pattern for texture */
 .lizard-bg-pattern {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -536,18 +536,18 @@ html { scroll-behavior: smooth; }
     min-height: 100vh;
 }
 
-/* Baja la tarjeta para que se centre mejor con el formulario largo */
+/* Lowers the card to better center it with the long form */
 .card-column-adjust {
-    padding-top: 100px; /* Ajusta este valor si quieres que baje más */
+    padding-top: 100px; /* Adjust this value if you want it lower */
 }
 
-/* Tarjeta sin altura fija para que el scroll funcione */
+/* Card without fixed height so scroll works */
 .settings-card {
     height: auto !important;
     min-height: min-content;
 }
 
-/* Danger Zone Minimalista */
+/* Minimalist Danger Zone */
 .btn-delete-minimal {
     background: transparent;
     color: #a0aec0;
@@ -567,18 +567,18 @@ html { scroll-behavior: smooth; }
     border-color: #feb2b2;
 }
 
-/* El espaciador visual */
+/* Visual Spacer */
 .py-5.my-4 {
     border: none;
     background: transparent;
 }
 
-/*HEL CENTER*/
-/* --- SIDEBAR FIX  --- */
+/* HELP CENTER */
+/* --- SIDEBAR FIX --- */
 .sidebar-stilnovo {
-    width: 280px !important;      /* Ancho fijo */
-    min-width: 280px !important;  /* Evita que se encoja */
-    flex-shrink: 0;               /* PROPIEDAD CLAVE: No se comprime */
+    width: 280px !important;      /* Fixed width */
+    min-width: 280px !important;  /* Prevents shrinking */
+    flex-shrink: 0;               /* KEY PROPERTY: Does not compress */
     height: 100vh;
     background-color: white;
     border-right: 1px solid #e2e8f0;
@@ -586,14 +586,14 @@ html { scroll-behavior: smooth; }
     top: 0;
 }
 
-/* Para que el contenido principal ocupe el resto del espacio sin empujar */
+/* Ensures main content occupies remaining space without pushing */
 .flex-grow-1 {
     flex-grow: 1;
-    min-width: 0; /* Permite que el contenido interno se ajuste */
+    min-width: 0; /* Allows internal content to adjust */
 }
 
-/*STATISTICS PAGE*/
-/* --- FIX PARA EL HUECO BLANCO --- */
+/* STATISTICS PAGE */
+/* --- FIX FOR WHITE SPACE GAP --- */
 .sidebar-stilnovo {
     width: 280px !important;
     min-width: 280px !important;
@@ -603,7 +603,7 @@ html { scroll-behavior: smooth; }
     top: 0;
 }
 
-/* --- DRAGON BUTTON (Inspirado en Uiverse Evil Dragon) --- */
+/* --- DRAGON BUTTON (Inspired by Uiverse Evil Dragon) --- */
 .dragon-btn {
     appearance: none;
     background-color: transparent;
@@ -688,10 +688,10 @@ html { scroll-behavior: smooth; }
     border-radius: 4px 4px 0 0;
 }
 
-/*MESSAGE PAGES*/
+/* MESSAGE PAGES */
 /* --- CHAT ELEGANCE REFINEMENTS --- */
 
-/* Sidebar Fija - Evita el encogimiento */
+/* Fixed Sidebar - Prevents shrinking */
 .sidebar-stilnovo {
     width: 280px !important;
     min-width: 280px !important;
@@ -787,10 +787,10 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
 }
 
-/*USER PRODUCTS*/
+/* USER PRODUCTS */
 /* --- MY PRODUCTS SPECIFIC STYLES --- */
 
-/* Sidebar Fija (Sincronizada con el resto) */
+/* Fixed Sidebar (Synced with the rest) */
 .sidebar-stilnovo {
     width: 280px !important;
     min-width: 280px !important;
@@ -798,7 +798,7 @@ html { scroll-behavior: smooth; }
     border-right: 1px solid #f1f4f8 !important;
 }
 
-/* Efecto hover en las tarjetas de producto */
+/* Hover effect on product cards */
 .clay-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -808,14 +808,14 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 8px 25px rgba(0,0,0,0.05) !important;
 }
 
-/* Imagen de previsualización */
+/* Image preview thumbnail */
 .product-img-preview img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-/* Botones de acción minimalistas */
+/* Minimalist action buttons */
 .btn-about:hover i {
     color: var(--brand-blue);
 }
@@ -824,23 +824,23 @@ html { scroll-behavior: smooth; }
     background-color: #fff5f5 !important;
 }
 
-/* Ajustes de scroll para móviles en filtros */
+/* Mobile scroll adjustments for filters */
 .overflow-auto::-webkit-scrollbar {
     display: none;
 }
 
 /* --- SALES & ORDERS STYLES --- */
 
-/* Indicadores de estado en los bordes de las tarjetas */
+/* Status indicators on card edges */
 .border-start-status-success { border-left: 5px solid #10b981 !important; }
 .border-start-status-warning { border-left: 5px solid #f59e0b !important; }
 
-/* LA CAJA VERDE DEL MAPA (Placeholder) */
+/* THE GREEN MAP BOX (Placeholder) */
 .green-map-box {
     width: 100%;
     height: 300px;
-    background-color: #f0fdf4; /* Verde muy claro */
-    border: 2px dashed #4caf50;  /* Borde verde punteado */
+    background-color: #f0fdf4; /* Very light green */
+    border: 2px dashed #4caf50;  /* Dotted green border */
     transition: all 0.3s ease;
 }
 
@@ -849,7 +849,7 @@ html { scroll-behavior: smooth; }
     border-style: solid;
 }
 
-/* Timeline del envío */
+/* Shipping timeline */
 .timeline-simple {
     display: flex;
     flex-direction: column;
@@ -874,37 +874,37 @@ html { scroll-behavior: smooth; }
     color: #10b981;
 }
 
-/*ADD PRODUCT*/
-/* --- FIX DEL INPUT DE IMAGEN --- */
+/* ADD PRODUCT */
+/* --- IMAGE INPUT FIX --- */
 .image-upload-zone {
     border: 2px dashed #e2e8f0;
     background: #fbfcfd;
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
-    overflow: hidden; /* Evita que el input se salga */
+    overflow: hidden; /* Prevents input from overflowing */
 }
 
-/* Aseguramos que el main siempre tenga espacio para no cortarse */
+/* Ensuring main always has space to prevent clipping */
 main.overflow-auto {
     height: 100vh;
-    padding-bottom: 120px !important; /* Espacio extra al final */
+    padding-bottom: 120px !important; /* Extra space at the end */
 }
 
-/* Para que los inputs no hereden estilos raros */
+/* Ensure inputs don't inherit weird styles */
 .search-box input {
     background: transparent;
     outline: none !important;
 }
 
-/* Los selects de bootstrap a veces dan problemas de sombra, los limpiamos */
+/* Bootstrap selects sometimes cause shadow issues, cleaning them */
 .form-select:focus {
     box-shadow: none !important;
     border-color: #e2e8f0;
 }
 
-/*EDIT PAGE*/
-/* --- FIX DE SCROLL Y SIDEBAR --- */
+/* EDIT PAGE */
+/* --- SCROLL AND SIDEBAR FIX --- */
 
 .sidebar-stilnovo {
     width: 280px !important;
@@ -915,13 +915,13 @@ main.overflow-auto {
     top: 0;
 }
 
-/* Forzar que el main tenga scroll y espacio debajo */
+/* Forcing main to have scroll and space at the bottom */
 main.overflow-auto {
     height: 100vh;
-    padding-bottom: 150px !important; /* Espacio extra muy importante */
+    padding-bottom: 150px !important; /* Very important extra space */
 }
 
-/* Fix para los inputs y el clic de imagen */
+/* Fix for inputs and image click */
 .image-upload-zone {
     cursor: pointer;
     border: 2px dashed #eee;
@@ -937,12 +937,12 @@ main.overflow-auto {
     outline: none !important;
 }
 
-/*INFO OF PRODUCT*/
+/* INFO OF PRODUCT */
 /* --- PRODUCT INFO PAGE STYLES --- */
 
-/* Control de la imagen principal */
+/* Main image control */
 .product-image-frame {
-    height: 550px; /* Altura fija elegante en desktop */
+    height: 550px; /* Elegant fixed height on desktop */
     background-color: #fbfcfd;
     border: 1px solid #f1f4f8;
     box-shadow: 
@@ -953,11 +953,11 @@ main.overflow-auto {
 .main-product-image {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain; /* La imagen nunca se deforma */
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); /* Sombra realista al objeto */
+    object-fit: contain; /* Image is never distorted */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); /* Realistic object shadow */
 }
 
-/* Miniaturas */
+/* Thumbnails */
 .thumb-frame {
     transition: all 0.3s ease;
 }
@@ -968,7 +968,7 @@ main.overflow-auto {
     opacity: 1 !important;
 }
 
-/* Botón de Favorito Circular */
+/* Circular Favorite Button */
 .btn-icon-circle {
     width: 45px;
     height: 45px;
@@ -981,11 +981,11 @@ main.overflow-auto {
 }
 
 .btn-icon-circle:hover {
-    background-color: #fee2e2 !important; /* Rojo claro al pasar el ratón */
+    background-color: #fee2e2 !important; /* Light red on hover */
     transform: scale(1.1);
 }
 
-/* Badges de atributos más limpios */
+/* Cleaner attribute badges */
 .badge-attribute {
     font-size: 0.8rem;
     font-weight: 700;
@@ -996,13 +996,13 @@ main.overflow-auto {
     border: 1px solid #e2e8f0;
 }
 
-/* Botón outline que se rellena al hover */
+/* Outline button that fills on hover */
 .hover-fill:hover {
     background-color: var(--brand-blue);
     color: white !important;
 }
 
-/* Tarjeta del vendedor */
+/* Seller card */
 .seller-card {
     transition: all 0.3s;
 }
@@ -1013,7 +1013,7 @@ main.overflow-auto {
     border-color: var(--brand-blue) !important;
 }
 
-/* Efecto de elevación para items sugeridos */
+/* Lift effect for suggested items */
 .transition-up {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1023,23 +1023,23 @@ main.overflow-auto {
     box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
 }
 
-/* Ajuste para móvil: imagen más pequeña */
+/* Adjustment for mobile: smaller image */
 @media (max-width: 991px) {
     .product-image-frame {
         height: 350px;
     }
     .sticky-lg-top {
-        position: static !important; /* Ya no es sticky en móvil */
+        position: static !important; /* No longer sticky on mobile */
     }
 }
 
-/*FAV PAGE*/
+/* FAV PAGE */
 .favorite-btn.active-fav .material-symbols-outlined {
     font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    color: #f43f5e; /* Color rojo/rosa de favorito */
+    color: #f43f5e; /* Red/pink favorite color */
 }
 
-/* Por si acaso, reseteamos el botón para que no salgan "pestañas" negras */
+/* Resetting button to prevent black tabs/borders */
 .favorite-btn {
     position: absolute;
     top: 10px;
@@ -1057,7 +1057,7 @@ main.overflow-auto {
     z-index: 2;
 }
 
-/*PAYMENT PAGE*/
+/* PAYMENT PAGE */
 .main-wrapper {
     min-height: calc(100vh - 70px);
     display: flex;
@@ -1068,11 +1068,11 @@ main.overflow-auto {
     min-height: 70px;
 }
 
-/* Tarjeta de crédito visual (Ancho corregido) */
+/* Visual credit card (Width corrected) */
 .visual-card {
     background: linear-gradient(135deg, #2f6ced 0%, #1a2a6c 100%);
-    width: 320px; /* AUMENTADO DE 280px A 320px */
-    height: 190px; /* Un poco más alta también para proporción */
+    width: 320px; /* INCREASED FROM 280px TO 320px */
+    height: 190px; /* Also slightly taller for proportion */
     border-radius: 20px;
     padding: 25px;
     color: white;
@@ -1099,7 +1099,7 @@ main.overflow-auto {
     margin-bottom: 20px;
 }
 
-/* Resto de estilos igual... */
+/* Rest of styles follow same logic... */
 .alert-oversized {
     background-color: #f8fafc;
     border-color: #e2e8f0;
@@ -1116,7 +1116,7 @@ main.overflow-auto {
     border-radius: 30px;
 }
 
-/*ADMIN CSS*/
+/* ADMIN CSS */
 /* ADMIN PANEL */
 .btn-danger-clay {
     background-color: #fee2e2;
@@ -1141,7 +1141,7 @@ main.overflow-auto {
     border-bottom-width: 0px;
 }
 
-/* Badge de estado específico para admin */
+/* Specific status badge for admin */
 .badge-admin {
     font-size: 0.75rem;
     padding: 6px 12px;
@@ -1149,61 +1149,61 @@ main.overflow-auto {
     font-weight: 700;
 }
 
-/* Ajuste de tabla para alinear avatares */
+/* Table adjustment to align avatars */
 .table-admin td {
     vertical-align: middle;
     padding: 1rem 0.5rem;
 }
 
-/*ADMIN USER MANAGMENT*/
+/* ADMIN USER MANAGEMENT */
 
-/* Badges de Estado "Clay" */
+/* "Clay" Status Badges */
 .badge-status {
-        padding: 8px 12px;
-        border-radius: 30px;
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.5px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
-        .status-active { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-        .status-reported { background-color: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; }
-        .status-banned { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.status-active { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.status-reported { background-color: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; }
+.status-banned { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
 
-        /* Botones de Acción Admin */
-        .btn-action-admin {
-            border: none;
-            border-radius: 10px;
-            padding: 6px 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .btn-edit { background-color: #f1f5f9; color: #475569; }
-        .btn-edit:hover { background-color: #e2e8f0; color: #1e293b; }
+/* Admin Action Buttons */
+.btn-action-admin {
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        .btn-ban { background-color: #fff7ed; color: #c2410c; }
-        .btn-ban:hover { background-color: #ffedd5; color: #9a3412; }
+.btn-edit { background-color: #f1f5f9; color: #475569; }
+.btn-edit:hover { background-color: #e2e8f0; color: #1e293b; }
 
-        .btn-delete { background-color: #fef2f2; color: #ef4444; }
-        .btn-delete:hover { background-color: #fee2e2; color: #dc2626; }
+.btn-ban { background-color: #fff7ed; color: #c2410c; }
+.btn-ban:hover { background-color: #ffedd5; color: #9a3412; }
 
-        /* Ajustes de Tabla Admin */
-        .table-admin th {
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #94a3b8;
-            font-weight: 800;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 15px;
-        }
+.btn-delete { background-color: #fef2f2; color: #ef4444; }
+.btn-delete:hover { background-color: #fee2e2; color: #dc2626; }
+
+/* Admin Table Adjustments */
+.table-admin th {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 800;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+}
 .table-admin td {
     vertical-align: middle;
     padding: 15px 10px;
@@ -1233,176 +1233,176 @@ main.overflow-auto {
 }
 
 
-/*ADMIN GLOBAL INVENTORY*/
-/* --- ESTILOS DE INVENTARIO (Claymorphism) --- */
+/* ADMIN GLOBAL INVENTORY */
+/* --- INVENTORY STYLES (Claymorphism) --- */
 
-        /* Badges de Categoría */
-        .badge-cat {
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .cat-cars { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
-        .cat-home { background-color: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
-        .cat-tech { background-color: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
-        .cat-fashion { background-color: #fef9c3; color: #a16207; border: 1px solid #fde047; }
+/* Category Badges */
+.badge-cat {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.cat-cars { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.cat-home { background-color: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
+.cat-tech { background-color: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+.cat-fashion { background-color: #fef9c3; color: #a16207; border: 1px solid #fde047; }
 
-        /* Badges de Estado del Producto */
-        .status-pill {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .st-active { background-color: #dcfce7; color: #15803d; }
-        .st-sold { background-color: #e2e8f0; color: #64748b; text-decoration: line-through; }
-        .st-pending { background-color: #dbeafe; color: #1d4ed8; }
+/* Product Status Badges */
+.status-pill {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.st-active { background-color: #dcfce7; color: #15803d; }
+.st-sold { background-color: #e2e8f0; color: #64748b; text-decoration: line-through; }
+.st-pending { background-color: #dbeafe; color: #1d4ed8; }
 
-        /* Botones de Acción */
-        .btn-icon-clay {
-            width: 32px; height: 32px;
-            display: inline-flex; align-items: center; justify-content: center;
-            border-radius: 8px;
-            border: none;
-            transition: all 0.2s;
-            margin-right: 4px;
-        }
-        .btn-view { background-color: #f1f5f9; color: #475569; }
-        .btn-view:hover { background-color: #e2e8f0; color: #1e293b; }
+/* Action Buttons */
+.btn-icon-clay {
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.2s;
+    margin-right: 4px;
+}
+.btn-view { background-color: #f1f5f9; color: #475569; }
+.btn-view:hover { background-color: #e2e8f0; color: #1e293b; }
 
-        .btn-delete-listing {
-            background-color: #fee2e2;
-            color: #b91c1c;
-            border: 1px solid #fca5a5;
-            border-radius: 8px;
-            font-weight: 700;
-            padding: 6px 12px;
-            font-size: 0.75rem;
-            transition: all 0.2s;
-        }
-        .btn-delete-listing:hover {
-            background-color: #dc2626;
-            color: white;
-            border-color: #dc2626;
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-        }
+.btn-delete-listing {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+}
+.btn-delete-listing:hover {
+    background-color: #dc2626;
+    color: white;
+    border-color: #dc2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
 
-        /* Ajustes de Tabla */
-        .product-img-thumb {
-            width: 50px; height: 50px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #f1f5f9;
-        }
-        .ref-id {
-            font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
-            color: #94a3b8;
-            font-weight: 700;
-        }
-/*ADMIN GLOBAL TRANSACTIONS*/
+/* Table Adjustments */
+.product-img-thumb {
+    width: 50px; height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #f1f5f9;
+}
+.ref-id {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 700;
+}
+/* ADMIN GLOBAL TRANSACTIONS */
 
-        /* Badges de Estado Financiero */
-        .badge-finance {
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .fin-completed { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-        .fin-pending { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; } /* Escrow */
-        .fin-dispute { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
-        .fin-refunded { background-color: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; text-decoration: line-through; }
+/* Financial Status Badges */
+.badge-finance {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.fin-completed { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.fin-pending { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; } /* Escrow */
+.fin-dispute { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.fin-refunded { background-color: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; text-decoration: line-through; }
 
-        /* Botones de Acción Financiera */
-        .btn-pdf {
-            background-color: #f8fafc;
-            color: #64748b;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 6px 10px;
-            transition: all 0.2s;
-        }
-        .btn-pdf:hover { background-color: #e2e8f0; color: #334155; }
+/* Financial Action Buttons */
+.btn-pdf {
+    background-color: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    transition: all 0.2s;
+}
+.btn-pdf:hover { background-color: #e2e8f0; color: #334155; }
 
-        .btn-refund {
-            background-color: #fff1f2;
-            color: #e11d48;
-            border: 1px solid #fda4af;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            transition: all 0.2s;
-        }
-        .btn-refund:hover {
-            background-color: #e11d48;
-            color: white;
-            box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
-        }
+.btn-refund {
+    background-color: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #fda4af;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+.btn-refund:hover {
+    background-color: #e11d48;
+    color: white;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+}
 
-        .trx-id {
-            font-family: 'Courier New', monospace;
-            font-weight: 700;
-            color: #64748b;
-            letter-spacing: -0.5px;
-        }
-        .amount-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: var(--navy-dark);
-        }
+.trx-id {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: -0.5px;
+}
+.amount-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--navy-dark);
+}
 
-/*SELLER PROFILE*/
+/* SELLER PROFILE */
 .header-border-line { border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .seller-hero-card { background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03); }
-        .seller-bio-container { border-left: 3px solid var(--brand-blue); padding-left: 20px; margin: 30px 0 10px 0; }
-        .seller-bio-text { font-size: 1.05rem; font-weight: 500; line-height: 1.6; color: #4a5568; font-style: italic; }
-        .stat-pill { background: #f1f5f9; padding: 8px 18px; border-radius: 50px; border: 1px solid #e2e8f0; }
+.seller-hero-card { background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03); }
+.seller-bio-container { border-left: 3px solid var(--brand-blue); padding-left: 20px; margin: 30px 0 10px 0; }
+.seller-bio-text { font-size: 1.05rem; font-weight: 500; line-height: 1.6; color: #4a5568; font-style: italic; }
+.stat-pill { background: #f1f5f9; padding: 8px 18px; border-radius: 50px; border: 1px solid #e2e8f0; }
 
-        /* Custom Tab Divider System */
-        .tab-divider-container { 
-            background-color: transparent !important; 
-            border-top: 1px solid #e2e8f0; 
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0;
-        }
-        .nav-stilnovo-tabs { border: none; justify-content: center; gap: 50px; }
-        .nav-stilnovo-tabs .nav-link { 
-            border: none; 
-            background: none; 
-            color: #94a3b8; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            letter-spacing: 1.5px; 
-            padding: 25px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-stilnovo-tabs .nav-link.active { color: var(--brand-blue); }
-        .nav-stilnovo-tabs .nav-link.active::after { 
-            content: ""; position: absolute; bottom: -1px; left: 0; 
-            width: 100%; height: 3px; background: var(--brand-blue); border-radius: 10px; 
-        }
+/* Custom Tab Divider System */
+.tab-divider-container { 
+    background-color: transparent !important; 
+    border-top: 1px solid #e2e8f0; 
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0;
+}
+.nav-stilnovo-tabs { border: none; justify-content: center; gap: 50px; }
+.nav-stilnovo-tabs .nav-link { 
+    border: none; 
+    background: none; 
+    color: #94a3b8; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    font-size: 0.75rem; 
+    letter-spacing: 1.5px; 
+    padding: 25px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-stilnovo-tabs .nav-link.active { color: var(--brand-blue); }
+.nav-stilnovo-tabs .nav-link.active::after { 
+    content: ""; position: absolute; bottom: -1px; left: 0; 
+    width: 100%; height: 3px; background: var(--brand-blue); border-radius: 10px; 
+}
 
-        /* Review Styles */
-        .user-avatar-placeholder { 
-            width: 45px; height: 45px; background: var(--brand-blue); 
-            color: white; border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; font-weight: 800;
-        }
+/* Review Styles */
+.user-avatar-placeholder { 
+    width: 45px; height: 45px; background: var(--brand-blue); 
+    color: white; border-radius: 50%; display: flex; 
+    align-items: center; justify-content: center; font-weight: 800;
+}
 
 .order-item-link .clay-card {
     border: 2px solid transparent !important; 

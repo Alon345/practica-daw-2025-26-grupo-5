@@ -43,7 +43,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    // --- FIX CRITICO: Ritorna Optional per non rompere gli altri Controller ---
+    // --- CRITICAL FIX: Return Optional to not break other Controllers
     public Optional<Product> findById(long id) {
         return productRepository.findById(id);
     }
@@ -73,7 +73,7 @@ public class ProductService {
         return productRepository.findBySeller(seller);
     }
 
-    // --- FIX: Aggiunto metodo mancante per UserWebController ---
+    // --- FIX: Added missing method for UserWebController ---
     public long getProductCount(User seller) {
         return productRepository.countBySeller(seller);
     }

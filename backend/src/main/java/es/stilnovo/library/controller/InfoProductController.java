@@ -13,7 +13,6 @@ import es.stilnovo.library.model.User;
 import es.stilnovo.library.model.UserInteraction;
 import es.stilnovo.library.service.ProductService;
 import es.stilnovo.library.service.UserService;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -28,7 +27,7 @@ public class InfoProductController {
     @GetMapping("/info-product-page/{id}")
     public String infoProduct(Model model, @PathVariable long id, HttpServletRequest request) {
         
-        // FIX: Ora findById torna Optional, usiamo .orElse(null) per prendere il Product
+        // Now findById returns Optional, we use .orElse(null) to get the Product Now
         Product product = productService.findById(id).orElse(null);
         
         if (product == null) {

@@ -2,7 +2,6 @@ package es.stilnovo.library.controller;
 
 import java.io.IOException;
 import java.sql.Blob;
-import es.stilnovo.library.model.User;
 
 import org.hibernate.engine.jdbc.proxy.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +10,14 @@ import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import es.stilnovo.library.model.User;
 import es.stilnovo.library.repository.UserRepository;
-
-import org.springframework.ui.Model;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -38,7 +36,7 @@ public class SignupWebController {
 
     @GetMapping("/signup-page")
     public String signup(Model model, HttpServletRequest request) {
-        // Obtenemos el token para que el formulario sea seguro
+        // Obtained the token for the form to be secure
         CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
         if (token != null) {
             model.addAttribute("token", token.getToken());
@@ -55,12 +53,12 @@ public class SignupWebController {
                                 @RequestParam String password,
                                 @RequestParam String confirmPassword) throws IOException{
 
-        // 1. Validamos que las contraseñas sean idénticas
+        // 1. We validate that the passwords are identical
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Passwords do not match!");
-            // Opcional: pasar el nombre de usuario de vuelta para que no tenga que escribirlo otra vez
+            // Optional: pass the username back so they don't have to type it again
             model.addAttribute("username", username);
-            return "signup-page"; // Volvemos al formulario con el error
+            return "signup-page"; // Return to the form with the error
         }
 
         String encodedPassword = passwordEncoder.encode(password);
