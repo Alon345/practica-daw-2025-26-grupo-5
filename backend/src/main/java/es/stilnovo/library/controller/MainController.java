@@ -27,14 +27,14 @@ public class MainController {
                         Principal principal) {
 
         // 1. Get typed data from Service (NO casting needed = NO errors)
-        List<Product> products = mainService.searchProducts(query, category);
+        List<Product> initialProducts = mainService.getInitialProducts();
         User user = mainService.getUserContext(principal != null ? principal.getName() : null);
 
-        // 2. Populate Model
+        // 2. Populate Model with all needed data for the view (NO logic here = NO errors)
         boolean logged = (user != null);
         boolean isAdmin = logged && user.getRoles().contains("ROLE_ADMIN");
 
-        model.addAttribute("products", products);
+        model.addAttribute("products", initialProducts);
         model.addAttribute("user", user);
         model.addAttribute("logged", logged);
         model.addAttribute("isAdmin", isAdmin);
@@ -77,8 +77,8 @@ public class MainController {
         model.addAttribute("products", products);*/
 
         // 3. Navigation Logic
-        if (products.size() == 1 && (query != null || category != null)) {
-            return "redirect:/info-product-page/" + products.get(0).getId();
+        if (initialProducts.size() == 1 && (query != null || category != null)) {
+            return "redirect:/info-product-page/" + initialProducts.get(0).getId();
         }
 
         return "index";

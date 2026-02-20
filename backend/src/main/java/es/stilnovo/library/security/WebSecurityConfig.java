@@ -39,7 +39,7 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
                 // PUBLIC PAGES: Essential for the index to load correctly
                 .requestMatchers("/", "/error").permitAll() 
-                .requestMatchers("/css/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
+                .requestMatchers("/css/**", "/javascript/**", "/images/**", "/favicon.ico").permitAll()
                 
                 // AUTHENTICATION PAGES: Login and Signup flows
                 .requestMatchers("/login-page", "/error").permitAll()
@@ -67,6 +67,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/api/v1/notifications/**").hasAnyRole("USER", "ADMIN")
                 .requestMatchers("/admin/admin-panel-page/**").hasAnyRole("ADMIN")
 				.requestMatchers("/admin/**").hasRole("ADMIN") //fix admin access
+                .requestMatchers("/load-more-products").permitAll() // AJAX endpoint for loading more products
 
 				
                 .anyRequest().authenticated()

@@ -1,0 +1,25 @@
+{{#products}}
+<div class="col-12 col-md-6 col-lg-3">
+    <a href="/info-product-page/{{id}}" class="text-decoration-none text-dark">
+        <div class="clay-card">
+            <div class="img-container">
+                <img src="/product-images/{{id}}" alt="{{name}}">
+                <!--
+                                This secction will be implemented in the future using js
+                            <form action="/add-favorite/{{id}}" method="post">
+                                <input type="hidden" name="_csrf" value="{{token}}"/>
+                                
+                                <button type="submit" class="favorite-btn border-0 bg-transparent">
+                                    <span class="material-symbols-outlined" style="color: #ff4757;">favorite</span>
+                                </button>
+                            </form>
+                        -->
+            </div>
+            <div class="product-details">
+                <h3>{{name}}</h3>
+                <p class="price">{{price}}€</p>
+            </div>
+        </div>
+    </a>
+</div>
+{{/products}}

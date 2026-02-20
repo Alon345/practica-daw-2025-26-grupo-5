@@ -38,4 +38,8 @@ public class MainService {
         if (username == null) return null;
         return userRepository.findByName(username).orElse(null);
     }
+
+    public List<Product> getInitialProducts() {
+        return productService.getProductsByPage(0, 4); // First page with 4 products
+    }
 }
