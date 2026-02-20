@@ -18,7 +18,7 @@ public class ProductController {
 
     @GetMapping("/load-more-products")
     public String loadMore(@RequestParam int page, Model model) {
-        List<Product> moreProducts = productService.getProductsByPage(page, 4); // 4 products per page
+        List<Product> moreProducts = productService.getProductsByPage(page, 10); // 4 products per page
         model.addAttribute("products", moreProducts);
         
         // Retorna solo el fragmento, no la página completa

@@ -40,6 +40,6 @@ public class MainService {
     }
 
     public List<Product> getInitialProducts() {
-        return productService.getProductsByPage(0, 4); // First page with 4 products
+        return productService.getProductsByPage(0, 10); // First page with 4 products
     }
 }
