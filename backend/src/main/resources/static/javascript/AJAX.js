@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', function() {
-            // Feedback visual
+            // Visual Feedback
             spinner.classList.remove('d-none');
             this.disabled = true;
 
@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     return response.text();
                 })
                 .then(html => {
-                    // Si el servidor devuelve el fragmento vacío, ya no hay más productos
+                    // If the server returns an empty fragment, there are no more products
                     if (html.trim() === "") {
                         this.innerText = "No more treasures found";
-                        this.classList.replace('btn-load-more', 'btn-secondary');
+                        this.classList.replace('btn-load-more', 'btn-no-more');
                         this.disabled = true;
                     } else {
-                        // Insertamos el HTML de las nuevas cards
+                        // We insert the HTML of the new cards
                         container.insertAdjacentHTML('beforeend', html);
                         currentPage++;
                         this.disabled = false;

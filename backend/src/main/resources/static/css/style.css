@@ -1498,3 +1498,18 @@ main.overflow-auto {
     background: #ff4d4d !important;
     border: none !important;
 }
+.btn-no-more {
+    background-color: transparent;
+    border: 2px solid #dc3545; /* Intense red */
+    color: #dc3545;            /* Red text*/
+    border-radius: 50px;       /* Oval/pill shape*/
+    padding: 10px 30px;
+    font-weight: bold;
+    text-transform: none;
+    cursor: not-allowed;       /* Change the cursor in order to indicate it is disabeld */
+    opacity: 0.8;              /* A little bit of transparency on the final state*/
+    display: inline-block;
+}
+.btn-no-more:disabled {
+    pointer-events: none;
+}
