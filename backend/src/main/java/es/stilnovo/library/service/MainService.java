@@ -1,6 +1,7 @@
 package es.stilnovo.library.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,8 @@ public class MainService {
     }
 
     public List<Product> getInitialProducts() {
-        return productService.getProductsByPage(0, 10); // First page with 4 products
+        int pageSize = 10;
+
+        return productService.getProductsByPage(0, pageSize); // First page with 10 products
     }
 }

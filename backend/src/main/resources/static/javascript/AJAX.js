@@ -18,14 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     return response.text();
                 })
                 .then(html => {
-                    // If the server returns an empty fragment, there are no more products
-                    if (html.trim() === "") {
+                    container.insertAdjacentHTML('beforeend', html);
+
+                    const noMoreMarker = container.querySelector('#no-more-marker');
+
+                    if (noMoreMarker) {
                         this.innerText = "No more treasures found";
                         this.classList.replace('btn-load-more', 'btn-no-more');
                         this.disabled = true;
+
+                        noMoreMarker.remove();
                     } else {
-                        // We insert the HTML of the new cards
-                        container.insertAdjacentHTML('beforeend', html);
                         currentPage++;
                         this.disabled = false;
                     }
